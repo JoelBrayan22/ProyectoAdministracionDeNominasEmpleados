@@ -28,7 +28,7 @@
         <!--View Controller-->
         <scene sceneID="M44-Dp-E7j">
             <objects>
-                <viewController id="Ru9-gq-GWe" sceneMemberID="viewController">
+                <viewController id="Ru9-gq-GWe" customClass="ViewController" customModule="ProyectoNominaEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OS5-hW-M4U">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGE-9d-gbR">
-                                <rect key="frame" x="63" y="546" width="88" height="34"/>
+                                <rect key="frame" x="63.000000000000007" y="546" width="87.666666666666686" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -107,7 +107,7 @@
         <!--Empleados-->
         <scene sceneID="YUf-7n-rtu">
             <objects>
-                <viewController id="FXp-o6-Zlm" sceneMemberID="viewController">
+                <viewController id="FXp-o6-Zlm" customClass="CatalogosEmpleadosViewController" customModule="ProyectoNominaEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yD7-7f-KR9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,7 +240,7 @@
         <!--Nomina-->
         <scene sceneID="D0u-kY-QSJ">
             <objects>
-                <viewController id="WM3-rR-dcJ" sceneMemberID="viewController">
+                <viewController id="WM3-rR-dcJ" customClass="HistorialNominaViewController" customModule="ProyectoNominaEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qn7-9q-WCv">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -333,7 +333,7 @@
         <!--Detalles Nomina-->
         <scene sceneID="0lp-BJ-Yul">
             <objects>
-                <viewController id="FSG-sV-9ZG" sceneMemberID="viewController">
+                <viewController id="FSG-sV-9ZG" customClass="DetallePagoViewController" customModule="ProyectoNominaEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Z2-a1-Mqg">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -522,7 +522,7 @@
         <!--Añadir Pago-->
         <scene sceneID="WPd-Dw-7js">
             <objects>
-                <viewController id="pf3-Z7-4zb" sceneMemberID="viewController">
+                <viewController id="pf3-Z7-4zb" customClass="AddPagoViewController" customModule="ProyectoNominaEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uUO-4l-jb6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -552,7 +552,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prestamo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svA-bd-38q">
-                                <rect key="frame" x="28" y="416" width="73" height="21"/>
+                                <rect key="frame" x="28" y="415.66666666666669" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -570,7 +570,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción prestamo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pq-g2-zk9">
-                                <rect key="frame" x="28" y="632" width="167" height="21"/>
+                                <rect key="frame" x="28" y="631.66666666666663" width="167" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -599,12 +599,12 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="viaticos" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Va-Ps-4BP">
-                                <rect key="frame" x="28" y="375" width="97" height="34"/>
+                                <rect key="frame" x="28" y="375" width="97" height="33.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="prestamo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kFI-EE-Xm3">
-                                <rect key="frame" x="28" y="447" width="97" height="34"/>
+                                <rect key="frame" x="28" y="446.66666666666669" width="97" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="RTz-FE-oid"/>
                                 </constraints>
@@ -612,7 +612,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="abono" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S1j-Pd-f4G">
-                                <rect key="frame" x="28" y="517" width="97" height="34"/>
+                                <rect key="frame" x="28" y="516.66666666666663" width="97" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="C7M-EL-o1V"/>
                                 </constraints>
@@ -620,7 +620,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="numero abono" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wpR-hP-sRX">
-                                <rect key="frame" x="28" y="590" width="97" height="34"/>
+                                <rect key="frame" x="28" y="589.66666666666663" width="97" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="DH1-K4-FHo"/>
                                 </constraints>
@@ -628,7 +628,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="descripción prestamo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dnI-M8-34H">
-                                <rect key="frame" x="28" y="669" width="97" height="34"/>
+                                <rect key="frame" x="28" y="668.66666666666663" width="97" height="34.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -720,10 +720,10 @@
             </objects>
             <point key="canvasLocation" x="2183" y="1235"/>
         </scene>
-        <!--View Controller-->
+        <!--Detalles Empleado View Controller-->
         <scene sceneID="P2D-tF-veo">
             <objects>
-                <viewController id="k0n-kC-pJo" sceneMemberID="viewController">
+                <viewController id="k0n-kC-pJo" customClass="DetallesEmpleadoViewController" customModule="ProyectoNominaEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wh0-Ue-tZq">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -912,7 +912,7 @@
         <!--Seleccionar Vacaciones-->
         <scene sceneID="vsm-FG-7aL">
             <objects>
-                <viewController id="M0t-WD-95V" sceneMemberID="viewController">
+                <viewController id="M0t-WD-95V" customClass="SeleccionarVacacionesViewController" customModule="ProyectoNominaEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HHa-gO-1Jx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1016,7 +1016,7 @@
         <!--Nuevo Empleado-->
         <scene sceneID="rnf-a9-NVn">
             <objects>
-                <viewController id="0hV-s7-zBZ" sceneMemberID="viewController">
+                <viewController id="0hV-s7-zBZ" customClass="AddEmpleadoViewController" customModule="ProyectoNominaEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jE9-hl-xnq">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1189,7 +1189,7 @@
         <!--Calendario-->
         <scene sceneID="DO3-1H-1v3">
             <objects>
-                <viewController id="W1F-9T-2WN" sceneMemberID="viewController">
+                <viewController id="W1F-9T-2WN" customClass="CalendarioViewController" customModule="ProyectoNominaEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G6X-Da-ott">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
