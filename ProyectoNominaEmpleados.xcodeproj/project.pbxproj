@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA294E5E2964E55B0046F824 /* CatalogosEmpleadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E5D2964E55B0046F824 /* CatalogosEmpleadosViewController.swift */; };
+		FA294E602964E5710046F824 /* AddEmpleadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E5F2964E5710046F824 /* AddEmpleadoViewController.swift */; };
+		FA294E622964E5850046F824 /* CalendarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E612964E5850046F824 /* CalendarioViewController.swift */; };
+		FA294E642964E5980046F824 /* DetallesEmpleadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E632964E5980046F824 /* DetallesEmpleadoViewController.swift */; };
+		FA294E662964E7F60046F824 /* SeleccionarVacacionesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E652964E7F60046F824 /* SeleccionarVacacionesViewController.swift */; };
+		FA294E682964E8100046F824 /* HistorialNominaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E672964E8100046F824 /* HistorialNominaViewController.swift */; };
+		FA294E6A2964E8210046F824 /* DetallePagoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E692964E8200046F824 /* DetallePagoViewController.swift */; };
+		FA294E6C2964E8330046F824 /* AddPagoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E6B2964E8330046F824 /* AddPagoViewController.swift */; };
 		FAFB7BE72964ABC100D64A70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB7BE62964ABC100D64A70 /* AppDelegate.swift */; };
 		FAFB7BE92964ABC100D64A70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB7BE82964ABC100D64A70 /* SceneDelegate.swift */; };
 		FAFB7BEB2964ABC100D64A70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB7BEA2964ABC100D64A70 /* ViewController.swift */; };
@@ -37,6 +45,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA294E5D2964E55B0046F824 /* CatalogosEmpleadosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogosEmpleadosViewController.swift; sourceTree = "<group>"; };
+		FA294E5F2964E5710046F824 /* AddEmpleadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmpleadoViewController.swift; sourceTree = "<group>"; };
+		FA294E612964E5850046F824 /* CalendarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarioViewController.swift; sourceTree = "<group>"; };
+		FA294E632964E5980046F824 /* DetallesEmpleadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetallesEmpleadoViewController.swift; sourceTree = "<group>"; };
+		FA294E652964E7F60046F824 /* SeleccionarVacacionesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeleccionarVacacionesViewController.swift; sourceTree = "<group>"; };
+		FA294E672964E8100046F824 /* HistorialNominaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistorialNominaViewController.swift; sourceTree = "<group>"; };
+		FA294E692964E8200046F824 /* DetallePagoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetallePagoViewController.swift; sourceTree = "<group>"; };
+		FA294E6B2964E8330046F824 /* AddPagoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPagoViewController.swift; sourceTree = "<group>"; };
 		FAFB7BE32964ABC100D64A70 /* ProyectoNominaEmpleados.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoNominaEmpleados.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFB7BE62964ABC100D64A70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAFB7BE82964ABC100D64A70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +122,6 @@
 				FAFB7C192964AC4600D64A70 /* Model */,
 				FAFB7BE62964ABC100D64A70 /* AppDelegate.swift */,
 				FAFB7BE82964ABC100D64A70 /* SceneDelegate.swift */,
-				FAFB7BEA2964ABC100D64A70 /* ViewController.swift */,
 				FAFB7BEC2964ABC100D64A70 /* Main.storyboard */,
 				FAFB7BF22964ABC500D64A70 /* Assets.xcassets */,
 				FAFB7BF42964ABC500D64A70 /* LaunchScreen.storyboard */,
@@ -143,6 +158,15 @@
 		FAFB7C1A2964AC5500D64A70 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAFB7BEA2964ABC100D64A70 /* ViewController.swift */,
+				FA294E5D2964E55B0046F824 /* CatalogosEmpleadosViewController.swift */,
+				FA294E5F2964E5710046F824 /* AddEmpleadoViewController.swift */,
+				FA294E612964E5850046F824 /* CalendarioViewController.swift */,
+				FA294E632964E5980046F824 /* DetallesEmpleadoViewController.swift */,
+				FA294E652964E7F60046F824 /* SeleccionarVacacionesViewController.swift */,
+				FA294E672964E8100046F824 /* HistorialNominaViewController.swift */,
+				FA294E692964E8200046F824 /* DetallePagoViewController.swift */,
+				FA294E6B2964E8330046F824 /* AddPagoViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,9 +309,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA294E682964E8100046F824 /* HistorialNominaViewController.swift in Sources */,
 				FAFB7BEB2964ABC100D64A70 /* ViewController.swift in Sources */,
+				FA294E602964E5710046F824 /* AddEmpleadoViewController.swift in Sources */,
 				FAFB7BF12964ABC100D64A70 /* ProyectoNominaEmpleados.xcdatamodeld in Sources */,
+				FA294E642964E5980046F824 /* DetallesEmpleadoViewController.swift in Sources */,
+				FA294E6C2964E8330046F824 /* AddPagoViewController.swift in Sources */,
+				FA294E662964E7F60046F824 /* SeleccionarVacacionesViewController.swift in Sources */,
 				FAFB7BE72964ABC100D64A70 /* AppDelegate.swift in Sources */,
+				FA294E622964E5850046F824 /* CalendarioViewController.swift in Sources */,
+				FA294E6A2964E8210046F824 /* DetallePagoViewController.swift in Sources */,
+				FA294E5E2964E55B0046F824 /* CatalogosEmpleadosViewController.swift in Sources */,
 				FAFB7BE92964ABC100D64A70 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
