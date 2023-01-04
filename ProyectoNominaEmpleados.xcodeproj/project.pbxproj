@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE46315B2965D5AC005AD6DF /* EmpleadoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE46315A2965D5AC005AD6DF /* EmpleadoModel.swift */; };
 		FA294E5E2964E55B0046F824 /* CatalogosEmpleadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E5D2964E55B0046F824 /* CatalogosEmpleadosViewController.swift */; };
 		FA294E602964E5710046F824 /* AddEmpleadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E5F2964E5710046F824 /* AddEmpleadoViewController.swift */; };
 		FA294E622964E5850046F824 /* CalendarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E612964E5850046F824 /* CalendarioViewController.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE46315A2965D5AC005AD6DF /* EmpleadoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmpleadoModel.swift; sourceTree = "<group>"; };
 		FA294E5D2964E55B0046F824 /* CatalogosEmpleadosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogosEmpleadosViewController.swift; sourceTree = "<group>"; };
 		FA294E5F2964E5710046F824 /* AddEmpleadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmpleadoViewController.swift; sourceTree = "<group>"; };
 		FA294E612964E5850046F824 /* CalendarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarioViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				FAFB7BEF2964ABC100D64A70 /* ProyectoNominaEmpleados.xcdatamodeld */,
+				CE46315A2965D5AC005AD6DF /* EmpleadoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				FA294E602964E5710046F824 /* AddEmpleadoViewController.swift in Sources */,
 				FAFB7BF12964ABC100D64A70 /* ProyectoNominaEmpleados.xcdatamodeld in Sources */,
 				FA294E642964E5980046F824 /* DetallesEmpleadoViewController.swift in Sources */,
+				CE46315B2965D5AC005AD6DF /* EmpleadoModel.swift in Sources */,
 				FA294E6C2964E8330046F824 /* AddPagoViewController.swift in Sources */,
 				FA294E662964E7F60046F824 /* SeleccionarVacacionesViewController.swift in Sources */,
 				FAFB7BE72964ABC100D64A70 /* AppDelegate.swift in Sources */,
