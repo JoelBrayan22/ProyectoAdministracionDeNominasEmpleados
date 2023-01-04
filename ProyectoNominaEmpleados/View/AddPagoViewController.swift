@@ -9,21 +9,34 @@ import UIKit
 
 class AddPagoViewController: UIViewController {
 
+    
+    @IBOutlet weak var nombrePagoTextField: UITextField!
+    
+    @IBOutlet weak var sueldoPagoTextField: UITextField!
+    
+    @IBOutlet weak var viaticosPagoTextField: UITextField!
+    
+    @IBOutlet weak var prestamoPagoTextField: UITextField!
+    
+    @IBOutlet weak var abonoPrestamoTextField: UITextField!
+    
+    @IBOutlet weak var NumeroAbonoTextField: UITextField!
+    
+    @IBOutlet weak var descripcionPrestamoTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func generarPagoActionButton(_ sender: Any) {
     }
-    */
+    
+    @IBAction func cancelarPagoActionButton(_ sender: Any) {
+    }
+    
+    
 
 }
