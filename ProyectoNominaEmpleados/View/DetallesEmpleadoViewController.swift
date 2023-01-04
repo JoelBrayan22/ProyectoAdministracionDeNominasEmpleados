@@ -9,21 +9,42 @@ import UIKit
 
 class DetallesEmpleadoViewController: UIViewController {
 
+    
+    @IBOutlet weak var empleadoImageView: UIImageView!
+    
+    @IBOutlet weak var nombreEmpleadoLabel: UILabel!
+    
+    @IBOutlet weak var idEmpleadoLabel: UILabel!
+    
+    @IBOutlet weak var empleadoVacacionesLabel: UILabel!
+    
+    @IBOutlet weak var areaEmpleadoLabel: UILabel!
+    
+    @IBOutlet weak var departamentoEmpleadoLabel: UILabel!
+    
+    @IBOutlet weak var prestamoEmpleadoLabel: UILabel!
+    
+    @IBOutlet weak var antiguedadEmpleadoLabel: UILabel!
+    
+    @IBOutlet weak var salarioEmpleadoLabel: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        empleadoImageView.layer.cornerRadius = empleadoImageView.bounds.size.width / 2.0
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func vacacionesEmpleadoActionButton(_ sender: Any) {
     }
-    */
+    
+    @IBAction func generarPagoEmpleadoActionButton(_ sender: Any) {
+    }
+    
+    @IBAction func nominaEmpleadoActionButton(_ sender: Any) {
+    }
+    
 
 }

@@ -9,21 +9,34 @@ import UIKit
 
 class AddEmpleadoViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    @IBOutlet weak var imagenPerfilEmpleado: UIImageView!
+    
+    @IBOutlet weak var nombreTextField: UITextField!
+    
+    @IBOutlet weak var idTextField: UITextField!
+    
+    @IBOutlet weak var areaTextField: UITextField!
+    
+    @IBOutlet weak var departamentoTextField: UITextField!
+    
+    @IBOutlet weak var puestoTextField: UITextField!
+    
+    @IBOutlet weak var salarioTextField: UITextField!
+    
+    @IBAction func addFechaContratacionActionButton(_ sender: Any) {
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imagenPerfilEmpleado.layer.cornerRadius = imagenPerfilEmpleado.bounds.size.width / 2.0
+        
     }
-    */
-
+    
+    @IBAction func guardarActionButton(_ sender: Any) {
+    }
+    
+    @IBAction func cancelarActionButton(_ sender: Any) {
+    }
+    
 }
