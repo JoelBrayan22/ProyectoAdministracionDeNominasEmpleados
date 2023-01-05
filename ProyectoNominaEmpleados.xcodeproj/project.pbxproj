@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CE93E19C296732DE00D71D43 /* NominaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93E19B296732DE00D71D43 /* NominaModel.swift */; };
 		CE93E19E2967539900D71D43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93E19D2967539900D71D43 /* ViewController.swift */; };
+		CE93E1A029675A0C00D71D43 /* NominaCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93E19F29675A0C00D71D43 /* NominaCustomTableViewCell.swift */; };
 		FA294E5E2964E55B0046F824 /* CatalogosEmpleadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E5D2964E55B0046F824 /* CatalogosEmpleadosViewController.swift */; };
 		FA294E602964E5710046F824 /* AddEmpleadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E5F2964E5710046F824 /* AddEmpleadoViewController.swift */; };
 		FA294E622964E5850046F824 /* CalendarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E612964E5850046F824 /* CalendarioViewController.swift */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		CE93E19B296732DE00D71D43 /* NominaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NominaModel.swift; sourceTree = "<group>"; };
 		CE93E19D2967539900D71D43 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE93E19F29675A0C00D71D43 /* NominaCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NominaCustomTableViewCell.swift; sourceTree = "<group>"; };
 		FA294E5D2964E55B0046F824 /* CatalogosEmpleadosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogosEmpleadosViewController.swift; sourceTree = "<group>"; };
 		FA294E5F2964E5710046F824 /* AddEmpleadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmpleadoViewController.swift; sourceTree = "<group>"; };
 		FA294E612964E5850046F824 /* CalendarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarioViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA45DA72967587900195786 /* CustomTableViewCell.swift */,
+				CE93E19F29675A0C00D71D43 /* NominaCustomTableViewCell.swift */,
 				FA294E5D2964E55B0046F824 /* CatalogosEmpleadosViewController.swift */,
 				FA294E5F2964E5710046F824 /* AddEmpleadoViewController.swift */,
 				FA294E612964E5850046F824 /* CalendarioViewController.swift */,
@@ -323,6 +326,7 @@
 				FA294E6C2964E8330046F824 /* AddPagoViewController.swift in Sources */,
 				FA294E662964E7F60046F824 /* SeleccionarVacacionesViewController.swift in Sources */,
 				FAFB7BE72964ABC100D64A70 /* AppDelegate.swift in Sources */,
+				CE93E1A029675A0C00D71D43 /* NominaCustomTableViewCell.swift in Sources */,
 				CE93E19E2967539900D71D43 /* ViewController.swift in Sources */,
 				FA294E622964E5850046F824 /* CalendarioViewController.swift in Sources */,
 				FAA45DA82967587900195786 /* CustomTableViewCell.swift in Sources */,
