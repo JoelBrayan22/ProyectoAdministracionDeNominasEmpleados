@@ -24,18 +24,47 @@ class NominaModel {
         return container
     }()
     
+    var empleadoLogueado: EmpleadoEntity?
+    
+    // Variable global que almacenara al empleado seleccionado
+    var empleadoSeleccionado: EmpleadoEntity?
+    
+    // Variable global que almacenara todos los empleadosz
     var empleados: [EmpleadoEntity] = []
     
-    var empleadoSeleccionado = EmpleadoEntity()
+    // Variable global que almacenara el pago seleccionado
+    var pagoSeleccionado: PagoEntity?
     
+    // Variable global que almacenara todos los pagos
     var pagos: [PagoEntity] = []
     
-    var pagoSeleccionado = PagoEntity()
+    // Variable seleccionado que almacena una fecha seleccionada
+    var fechaContratacion: Date?
+    var fechaInicioVacaciones: Date?
+    var fechaFinVacaciones: Date?
+    var fechaPago: Date?
+    
+    // Variable global que retiene el tipo de fecha seleccionada
+    var tipoFecha: TipoFecha?
     
     let logIn: [(correo: String, password: String)] =
                 [("heber@gs.com","1234"),
                  ("joel@gs.com","1234"),
                  ("brian@gs.com", "1234")]
+    
+    func instalarEmpleados() {
+        print("Instalando empleados")
+        
+        guard let _ = self.addEmpleado(id: 1, nombre: "Admin Ejemplo", area: "Pruebas", departamento: "Desarrollo", puesto: "Testing", fechaContratacion: Date.now, salario: 15000) else {
+            return
+        }
+        guard let _ = self.addEmpleado(id: 2, nombre: "Ana Paola", area: "Contabilidad", departamento: "Recursos Financieros", puesto: "Secretaria", fechaContratacion: Date.now, salario: 10000) else {
+            return
+        }
+        guard let _ = self.addEmpleado(id: 3, nombre: "Pedro Soto", area: "Administración", departamento: "Titulación", puesto: "Gerente", fechaContratacion: Date.now, salario: 17500) else {
+            return
+        }
+    }
     
     func loadEmpleados() {
         
@@ -50,25 +79,28 @@ class NominaModel {
             self.empleados = empleados
         }
         
+        if self.empleados.isEmpty {
+            self.instalarEmpleados()
+        }
+        
         if let pagos = try? context.fetch(requestPagos) {
             
             self.pagos = pagos
         }
     }
     
-    func empleadoLogIn(correo: String, password: String) -> Bool {
+    func empleadoLogIn(correo: String, password: String) -> EmpleadoEntity? {
         
-        var logInResponse = false
+        self.loadEmpleados()
         
-        for logIn in self.logIn {
-            if correo == logIn.correo && password == logIn.password {
-                
-                logInResponse = true
-                break
-            }
+        if let empleado = self.empleados.filter({ empleado in
+            empleado.correo == correo && empleado.password == password
+        }).first {
+            self.empleadoLogueado = empleado
+            return empleado
         }
         
-        return logInResponse
+        return nil
     }
     
     func getEmpleados() -> [EmpleadoEntity] {
@@ -77,7 +109,7 @@ class NominaModel {
         return self.empleados
     }
     
-    func addEmpleado(id: Int, nombre: String, area: String, departamento: String, puesto: String, fechaContratacion: Date, antiguedad: Int, salario: Double, fechaVacacionesInicio: Date, fechaVacacionesFin: Date, estaVacaciones: Bool, tienePrestamo: Bool) -> EmpleadoEntity? {
+    func addEmpleado(id: Int, nombre: String, area: String, departamento: String, puesto: String, fechaContratacion: Date, salario: Double) -> EmpleadoEntity? {
         
         let context = persistentContainer.viewContext
         
@@ -89,12 +121,14 @@ class NominaModel {
         empleado.departamento = departamento
         empleado.puesto = puesto
         empleado.fechaContratacion = fechaContratacion
-        empleado.antiguedad = Int32(antiguedad)
+        empleado.antiguedad = Int32(0)
         empleado.salario = salario
-        empleado.fechaVacacionesInicio = fechaVacacionesInicio
-        empleado.fechaVacacionesFin = fechaVacacionesFin
-        empleado.estaVacaciones = estaVacaciones
-        empleado.tienePrestamo = tienePrestamo
+        empleado.fechaVacacionesInicio = nil
+        empleado.fechaVacacionesFin = nil
+        empleado.estaVacaciones = false
+        empleado.tienePrestamo = false
+        empleado.correo = "empleado_\(empleado.id)@empresa.com"
+        empleado.password = "empleado_\(empleado.id)"
         
         do {
             try context.save()
@@ -108,7 +142,7 @@ class NominaModel {
         }
     }
     
-    func seleccionarEmpleado(index: Int) -> EmpleadoEntity? {
+    func seleccionarEmpleado(index: Int, empleado: EmpleadoEntity) -> EmpleadoEntity? {
         
         guard index >= 0 && index < self.empleados.count
         else { return nil }
@@ -135,7 +169,7 @@ class NominaModel {
         return self.pagos
     }
     
-    func seleccionarPago(index: Int) -> PagoEntity? {
+    func seleccionarPago(index: Int, pago: PagoEntity) -> PagoEntity? {
         
         guard index >= 0 && index < self.pagos.count
         else { return nil }
@@ -159,6 +193,9 @@ class NominaModel {
         pago.descripcionPrestamo = descripcionPrestamo ?? ""
         pago.cantidadRestantePrestamo = cantidadRestantePrestamo ?? 0.0
         pago.numeroAbono = Int32(numeroAbono ?? 0)
+        if let empleadoSeleccionado = self.empleadoSeleccionado {
+            pago.empleado = empleadoSeleccionado
+        }
         
         do {
             try context.save()

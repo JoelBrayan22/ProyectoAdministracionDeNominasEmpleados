@@ -9,5 +9,7 @@ import Foundation
 
 protocol HistorialNominaDelegate {
 
-    func salario(historialSalario historial: [PagoEntity]
+    func pago(historialPagos historial: [PagoEntity])
+    
+    func pago(pagoSeleccionado: PagoEntity, index: Int)
 }
