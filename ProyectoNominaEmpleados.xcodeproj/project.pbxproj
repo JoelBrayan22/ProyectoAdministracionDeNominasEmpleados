@@ -123,6 +123,7 @@
 				FAFB7C1A2964AC5500D64A70 /* View */,
 				FAFB7C192964AC4600D64A70 /* Model */,
 				FAFB7BE62964ABC100D64A70 /* AppDelegate.swift */,
+				FAFB7BEA2964ABC100D64A70 /* ViewController.swift */,
 				FAFB7BE82964ABC100D64A70 /* SceneDelegate.swift */,
 				FAFB7BEC2964ABC100D64A70 /* Main.storyboard */,
 				FAFB7BF22964ABC500D64A70 /* Assets.xcassets */,
@@ -161,7 +162,6 @@
 		FAFB7C1A2964AC5500D64A70 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FAFB7BEA2964ABC100D64A70 /* ViewController.swift */,
 				FA294E5D2964E55B0046F824 /* CatalogosEmpleadosViewController.swift */,
 				FA294E5F2964E5710046F824 /* AddEmpleadoViewController.swift */,
 				FA294E612964E5850046F824 /* CalendarioViewController.swift */,
