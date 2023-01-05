@@ -34,9 +34,15 @@ class AddEmpleadoViewController: UIViewController {
     }
     
     @IBAction func guardarActionButton(_ sender: Any) {
+        let alert = UIAlertController(title: "Atención", message: "¿ Desea guardar al empleado ?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+            NSLog("Empleado Guardado")
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
-    
+        
     @IBAction func cancelarActionButton(_ sender: Any) {
+        
     }
     
 }
