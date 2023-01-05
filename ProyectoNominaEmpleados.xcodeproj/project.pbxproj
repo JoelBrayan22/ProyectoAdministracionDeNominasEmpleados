@@ -18,7 +18,6 @@
 		FA294E6C2964E8330046F824 /* AddPagoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E6B2964E8330046F824 /* AddPagoViewController.swift */; };
 		FAFB7BE72964ABC100D64A70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB7BE62964ABC100D64A70 /* AppDelegate.swift */; };
 		FAFB7BE92964ABC100D64A70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB7BE82964ABC100D64A70 /* SceneDelegate.swift */; };
-		FAFB7BEB2964ABC100D64A70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB7BEA2964ABC100D64A70 /* ViewController.swift */; };
 		FAFB7BEE2964ABC100D64A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFB7BEC2964ABC100D64A70 /* Main.storyboard */; };
 		FAFB7BF12964ABC100D64A70 /* NominApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFB7BEF2964ABC100D64A70 /* NominApp.xcdatamodeld */; };
 		FAFB7BF32964ABC500D64A70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFB7BF22964ABC500D64A70 /* Assets.xcassets */; };
@@ -58,7 +57,6 @@
 		FAFB7BE32964ABC100D64A70 /* ProyectoNominaEmpleados.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoNominaEmpleados.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFB7BE62964ABC100D64A70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAFB7BE82964ABC100D64A70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAFB7BEA2964ABC100D64A70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAFB7BED2964ABC100D64A70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAFB7BF02964ABC100D64A70 /* ProyectoNominaEmpleados.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ProyectoNominaEmpleados.xcdatamodel; sourceTree = "<group>"; };
 		FAFB7BF22964ABC500D64A70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,7 +159,6 @@
 		FAFB7C1A2964AC5500D64A70 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FAFB7BEA2964ABC100D64A70 /* ViewController.swift */,
 				FA294E5D2964E55B0046F824 /* CatalogosEmpleadosViewController.swift */,
 				FA294E5F2964E5710046F824 /* AddEmpleadoViewController.swift */,
 				FA294E612964E5850046F824 /* CalendarioViewController.swift */,
@@ -314,7 +311,6 @@
 			files = (
 				CE93E19C296732DE00D71D43 /* NominaModel.swift in Sources */,
 				FA294E682964E8100046F824 /* HistorialNominaViewController.swift in Sources */,
-				FAFB7BEB2964ABC100D64A70 /* ViewController.swift in Sources */,
 				FA294E602964E5710046F824 /* AddEmpleadoViewController.swift in Sources */,
 				FAFB7BF12964ABC100D64A70 /* NominApp.xcdatamodeld in Sources */,
 				FA294E642964E5980046F824 /* DetallesEmpleadoViewController.swift in Sources */,
