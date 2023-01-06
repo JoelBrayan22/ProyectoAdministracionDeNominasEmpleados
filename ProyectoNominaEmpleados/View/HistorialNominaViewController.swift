@@ -20,6 +20,7 @@ class HistorialNominaViewController: UIViewController {
         NominaController.shared.historialNominaDelegate = self
         
         myTableView.dataSource = self
+        myTableView.delegate = self
         
         NominaController.shared.obtenerHistorialPagos()
     }
@@ -33,6 +34,14 @@ extension HistorialNominaViewController: HistorialNominaDelegate {
     }
     
     func pago(pagoSeleccionado: PagoEntity, index: Int) {
+        
+        //cuando el modelo actualice el pago seleccionado, el controlador
+        //notifica si la acción se realizó correctamente, para que la vista
+        //pueda (o no), actualizarse con un perform segue.
+        if let _ = NominaController.shared.model.pagoSeleccionado{
+            
+            self.performSegue(withIdentifier: "GoDetallesPagoVC", sender: nil)
+        }
     }
 }
 
@@ -50,7 +59,7 @@ extension HistorialNominaViewController: UITableViewDataSource {
     
     // Titulo deseado en cada seccion
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Pagos"
+        return "Historial de Pagos"
     }
     
     // Configuracion de la celda
@@ -59,9 +68,19 @@ extension HistorialNominaViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NominasCell")!
         let pago = self.pagos[indexPath.row]
         
+        // Creamos diferente un formatter para representar datos tipo Date en
+        // forma de String más comprensibles para el usuario
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        
+        let formatterCurrency = NumberFormatter()
+        formatterCurrency.locale = Locale.current
+        formatterCurrency.numberStyle = .currency
+        
         if let customCell = cell as? NominaCustomTableViewCell {
-            //print(empleado.nombre)
             customCell.nombreNominaLabel.text = pago.nombreEmpleado
+            customCell.fechaPagoLabel.text = formatter.string(from: pago.fechaPago ?? Date.now)
+            customCell.cantidadLabel.text = formatterCurrency.string(from: pago.sueldo - pago.viaticos - pago.prestamo as NSNumber)
         }
         
         return cell
@@ -71,7 +90,8 @@ extension HistorialNominaViewController: UITableViewDataSource {
 extension HistorialNominaViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Presionado")
+        
+        NominaController.shared.seleccionarPago(index: indexPath.row, pago: NominaController.shared.model.pagoSeleccionado ?? PagoEntity().self)
     }
     
 }

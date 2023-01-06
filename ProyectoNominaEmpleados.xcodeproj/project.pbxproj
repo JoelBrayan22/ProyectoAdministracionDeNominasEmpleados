@@ -29,6 +29,7 @@
 		FA859F532967632E0061F46B /* ViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA859F492967632E0061F46B /* ViewControllerDelegate.swift */; };
 		FA859F542967632E0061F46B /* NominaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA859F4A2967632E0061F46B /* NominaController.swift */; };
 		FAA45DA82967587900195786 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA45DA72967587900195786 /* CustomTableViewCell.swift */; };
+		FAA45DB52968922F00195786 /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA45DB42968922F00195786 /* Dates.swift */; };
 		FAFB7BE72964ABC100D64A70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB7BE62964ABC100D64A70 /* AppDelegate.swift */; };
 		FAFB7BE92964ABC100D64A70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFB7BE82964ABC100D64A70 /* SceneDelegate.swift */; };
 		FAFB7BEE2964ABC100D64A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFB7BEC2964ABC100D64A70 /* Main.storyboard */; };
@@ -80,6 +81,7 @@
 		FA859F492967632E0061F46B /* ViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegate.swift; sourceTree = "<group>"; };
 		FA859F4A2967632E0061F46B /* NominaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NominaController.swift; sourceTree = "<group>"; };
 		FAA45DA72967587900195786 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		FAA45DB42968922F00195786 /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		FAFB7BE32964ABC100D64A70 /* ProyectoNominaEmpleados.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProyectoNominaEmpleados.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFB7BE62964ABC100D64A70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAFB7BE82964ABC100D64A70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		FAA45DB32968920000195786 /* Extensiones */ = {
+			isa = PBXGroup;
+			children = (
+				FAA45DB42968922F00195786 /* Dates.swift */,
+			);
+			path = Extensiones;
+			sourceTree = "<group>";
+		};
 		FAFB7BDA2964ABC100D64A70 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +170,7 @@
 		FAFB7BE52964ABC100D64A70 /* ProyectoNominaEmpleados */ = {
 			isa = PBXGroup;
 			children = (
+				FAA45DB32968920000195786 /* Extensiones */,
 				FAFB7C1A2964AC5500D64A70 /* View */,
 				FA859F40296762DC0061F46B /* Controllers */,
 				FAFB7C192964AC4600D64A70 /* Model */,
@@ -369,6 +380,7 @@
 				FA859F532967632E0061F46B /* ViewControllerDelegate.swift in Sources */,
 				FA294E622964E5850046F824 /* CalendarioViewController.swift in Sources */,
 				FAA45DA82967587900195786 /* CustomTableViewCell.swift in Sources */,
+				FAA45DB52968922F00195786 /* Dates.swift in Sources */,
 				FA294E6A2964E8210046F824 /* DetallePagoViewController.swift in Sources */,
 				FA859F4D2967632E0061F46B /* AddPagoDelegate.swift in Sources */,
 				FA294E5E2964E55B0046F824 /* CatalogoEmpleadosViewController.swift in Sources */,

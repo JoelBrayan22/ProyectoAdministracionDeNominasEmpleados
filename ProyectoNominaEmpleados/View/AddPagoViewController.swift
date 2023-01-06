@@ -21,6 +21,11 @@ class AddPagoViewController: UIViewController {
     
     @IBOutlet weak var descripcionPrestamoTextField: UITextField!
     
+    
+    @IBAction func fechaPagoAction(_ sender: Any) {
+        NominaController.shared.seleccionarTipoFechaComoFechaPago()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
