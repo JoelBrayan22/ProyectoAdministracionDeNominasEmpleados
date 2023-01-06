@@ -376,7 +376,6 @@
                                             <outlet property="cantidadLabel" destination="CTl-Gf-XXk" id="HJW-kQ-4tq"/>
                                             <outlet property="fechaPagoLabel" destination="gUH-Ea-cSV" id="rSQ-bu-mko"/>
                                             <outlet property="nombreNominaLabel" destination="LK3-NZ-6QU" id="Q5Y-aH-jEJ"/>
-                                            <segue destination="FSG-sV-9ZG" kind="show" identifier="GoDetallesPagoVC" id="irb-6r-UEv"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -394,6 +393,7 @@
                     <navigationItem key="navigationItem" title="Nomina" id="ZA3-cY-Rfr"/>
                     <connections>
                         <outlet property="myTableView" destination="WGR-Mz-lkO" id="OBi-yQ-vsA"/>
+                        <segue destination="FSG-sV-9ZG" kind="show" identifier="GoDetallesPagoVC" id="7U4-jq-MI6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncR-Qw-FPA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -713,11 +713,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvl-Ju-q5H">
-<<<<<<< HEAD
-                                <rect key="frame" x="209.66666666666666" y="658" width="92.333333333333343" height="35.666666666666629"/>
-=======
-                                <rect key="frame" x="210" y="661" width="92" height="35"/>
->>>>>>> 327b02324133e23110ba21b4209d1770d8111813
+                                <rect key="frame" x="210" y="660.66666666666663" width="92" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cancelar"/>
                                 <connections>
@@ -945,6 +941,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Nomina"/>
                                 <connections>
                                     <action selector="nominaEmpleadoActionButton:" destination="k0n-kC-pJo" eventType="touchUpInside" id="f4K-20-JGz"/>
+                                    <segue destination="WM3-rR-dcJ" kind="show" id="674-bq-JL2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JlO-DH-jOk">
@@ -1014,7 +1011,6 @@
                         <outlet property="nombreEmpleadoLabel" destination="42k-Fg-sVv" id="fr8-ac-7v7"/>
                         <outlet property="prestamoEmpleadoLabel" destination="9ML-kg-s2n" id="P6h-8Z-mvJ"/>
                         <outlet property="salarioEmpleadoLabel" destination="3tL-u1-InG" id="u9O-fY-x4n"/>
-                        <segue destination="WM3-rR-dcJ" kind="show" identifier="GoHistorialNominaVC" id="dqx-qw-V5z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPJ-sn-CmS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1030,7 +1026,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="121" translatesAutoresizingMaskIntoConstraints="NO" id="oCc-s6-BeL">
-                                <rect key="frame" x="61" y="416" width="241.66666666666663" height="34.333333333333314"/>
+                                <rect key="frame" x="60.999999999999986" y="416" width="241.66666666666663" height="34.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha Fin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGr-iW-Jzt">
                                         <rect key="frame" x="0.0" y="0.0" width="73.333333333333329" height="34.333333333333336"/>
@@ -1055,7 +1051,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvb-3r-4gF">
-                                <rect key="frame" x="154.66666666666666" y="653" width="83.666666666666657" height="35"/>
+                                <rect key="frame" x="154.66666666666666" y="653.66666666666663" width="83.666666666666657" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Aceptar"/>
                                 <connections>
@@ -1063,7 +1059,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="104" translatesAutoresizingMaskIntoConstraints="NO" id="Tfz-jg-5Ie">
-                                <rect key="frame" x="61" y="342" width="241.66666666666663" height="34.333333333333314"/>
+                                <rect key="frame" x="60.999999999999986" y="342" width="241.66666666666663" height="34.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fecha Inicio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNs-hR-ajn">
                                         <rect key="frame" x="0.0" y="0.0" width="90.666666666666671" height="34.333333333333336"/>
@@ -1162,47 +1158,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eX3-o8-g4A">
-                                <rect key="frame" x="83" y="338" width="80" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Area" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Si0-Bb-2sG">
-                                <rect key="frame" x="83" y="384" width="36" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departamento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8op-bf-WeX">
-                                <rect key="frame" x="135" y="511.00000000000006" width="121" height="22.666666666666686"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Puesto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCo-2u-pbm">
-                                <rect key="frame" x="83" y="430" width="71" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdL-6P-45c">
-                                <rect key="frame" x="83" y="459" width="52" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="qvE-jC-GkT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fecha de Contratación" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCQ-cQ-SWd">
-                                <rect key="frame" x="103" y="593" width="184" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-=======
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4Ol-Mm-7OR">
                                 <rect key="frame" x="40" y="338" width="313" height="37"/>
                                 <subviews>
@@ -1302,7 +1257,6 @@
                                     </button>
                                 </subviews>
                             </stackView>
->>>>>>> 327b02324133e23110ba21b4209d1770d8111813
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyN-ep-oAJ">
                                 <rect key="frame" x="58.666666666666664" y="713" width="85.666666666666686" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
