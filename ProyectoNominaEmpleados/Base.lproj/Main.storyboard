@@ -45,8 +45,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chA-6L-ubt">
-                                <rect key="frame" x="237" y="499" width="103" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="empleado_1" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="chA-6L-ubt">
+                                <rect key="frame" x="237" y="499" width="105" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
@@ -56,10 +56,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                 <connections>
                                     <action selector="loginActionButton:" destination="Ru9-gq-GWe" eventType="touchUpInside" id="y7O-3v-gcr"/>
-                                    <segue destination="FXp-o6-Zlm" kind="show" id="n22-4a-Nu4"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Usuario" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAT-uu-EcW">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="empleado_1@empresa.com" borderStyle="roundedRect" placeholder="Usuario" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAT-uu-EcW">
                                 <rect key="frame" x="237" y="409" width="103" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="103" id="FVy-oo-t9M"/>
@@ -640,7 +639,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abono Prestamo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUo-tX-Tnu">
-                                <rect key="frame" x="49" y="404" width="127" height="21"/>
+                                <rect key="frame" x="49.000000000000007" y="404" width="126.66666666666669" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -652,13 +651,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descripción prestamo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pq-g2-zk9">
-                                <rect key="frame" x="113" y="517" width="167" height="21"/>
+                                <rect key="frame" x="112.66666666666667" y="517" width="167.33333333333331" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jC3-y0-jbm">
-                                <rect key="frame" x="67" y="658" width="86" height="35"/>
+                                <rect key="frame" x="67" y="658" width="85.666666666666686" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Generar"/>
                                 <connections>
@@ -700,7 +699,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="numero abono" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wpR-hP-sRX">
-                                <rect key="frame" x="208" y="444" width="97" height="34"/>
+                                <rect key="frame" x="207.66666666666666" y="444" width="97.333333333333343" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="DH1-K4-FHo"/>
                                 </constraints>
@@ -708,7 +707,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="descripción prestamo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dnI-M8-34H">
-                                <rect key="frame" x="113" y="563" width="167" height="34"/>
+                                <rect key="frame" x="112.66666666666667" y="563" width="167.33333333333331" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -739,7 +738,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvl-Ju-q5H">
-                                <rect key="frame" x="210" y="658" width="92" height="35"/>
+                                <rect key="frame" x="209.66666666666666" y="658" width="92.333333333333343" height="35.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cancelar"/>
                                 <connections>
@@ -1373,10 +1372,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="eUQ-dx-btI">
-                                <rect key="frame" x="0.0" y="203" width="393" height="515"/>
+                                <rect key="frame" x="0.0" y="203" width="393" height="466"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnA-a0-PNH">
-                                <rect key="frame" x="48" y="726" width="86" height="35"/>
+                                <rect key="frame" x="48" y="677" width="86" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Guardar"/>
                                 <connections>
@@ -1384,7 +1383,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFJ-df-Vbd">
-                                <rect key="frame" x="235" y="726" width="92" height="35"/>
+                                <rect key="frame" x="235" y="677" width="92" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cancelar"/>
                                 <connections>
@@ -1416,8 +1415,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rTt-ZZ-4u0"/>
-        <segue reference="e4U-r7-JLO"/>
+        <segue reference="O7b-HB-JMD"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NominaEmpleados" width="500" height="500"/>

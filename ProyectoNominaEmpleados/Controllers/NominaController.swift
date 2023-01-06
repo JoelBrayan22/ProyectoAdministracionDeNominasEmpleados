@@ -54,7 +54,9 @@ class NominaController {
     }
     
     // Crear un empleado nuevo en AddEmpleadoVC
-    func addEmpleado(id: Int, nombre: String, area: String, departamento: String, puesto: String, fechaContratacion: Date, antiguedad: Int, salario: Double, fechaVacacionesInicio: Date, fechaVacacionesFin: Date, estaVacaciones: Bool, tienePrestamo: Bool) {
+    func addEmpleado(id: Int, nombre: String, area: String, departamento: String, puesto: String, fechaContratacion: Date, salario: Double) {
+        
+        print("Agregando empleado \(id) \(nombre)")
         
         if let empleado = self.model.addEmpleado(id: Int(Int32.random(in: 1...Int32.max)), nombre: nombre, area: area, departamento: departamento, puesto: puesto, fechaContratacion: fechaContratacion, salario: salario) {
             
