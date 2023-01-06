@@ -727,7 +727,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvl-Ju-q5H">
-                                <rect key="frame" x="209.66666666666666" y="658" width="92.333333333333343" height="37.666666666666629"/>
+                                <rect key="frame" x="209.66666666666666" y="658" width="92.333333333333343" height="35.666666666666629"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cancelar"/>
                                 <connections>
@@ -1160,7 +1160,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departamento" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8op-bf-WeX">
-                                <rect key="frame" x="135" y="511" width="121" height="22.666666666666629"/>
+                                <rect key="frame" x="135" y="511.00000000000006" width="121" height="22.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
