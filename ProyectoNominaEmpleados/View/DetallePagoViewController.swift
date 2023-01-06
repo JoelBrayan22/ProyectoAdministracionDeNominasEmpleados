@@ -44,10 +44,20 @@ class DetallePagoViewController: UIViewController {
 
 extension DetallePagoViewController: DetallePagoDelegate {
     func salario(pagoSeleccionado pago: PagoEntity) {
+        
         nombrePagoLabel.text = pago.nombreEmpleado
+        
         if let fechaPago = pago.fechaPago {
             fechaPagoLabel.text = fechaPago.toString
         }
+        
+        sueldoLabel.text = pago.sueldo.toString
+        viaticosLabel.text = pago.viaticos.toString
+        prestamoPagoLabel.text = pago.prestamo.toString
+        abonoPrestamoLabel.text = pago.numeroAbono.toString
+        cantidadAbonosLabel.text = pago.cantidadRestantePrestamo.toString
+        descripcionPrestamoLabel.text = pago.descripcionPrestamo
+        DeudaRestanteLabel.text = pago.cantidadRestantePrestamo.toString
         
     }
     
