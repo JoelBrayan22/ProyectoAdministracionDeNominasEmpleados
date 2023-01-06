@@ -110,7 +110,7 @@
         <!--Empleados-->
         <scene sceneID="YUf-7n-rtu">
             <objects>
-                <viewController id="FXp-o6-Zlm" customClass="CatalogosEmpleadosViewController" customModule="ProyectoNominaEmpleados" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FXp-o6-Zlm" customClass="CatalogoEmpleadosViewController" customModule="ProyectoNominaEmpleados" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yD7-7f-KR9">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1053,6 +1053,7 @@
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
                                 <connections>
+                                    <action selector="inicioVacacionesAction:" destination="M0t-WD-95V" eventType="touchUpInside" id="1Jj-yU-MlA"/>
                                     <segue destination="W1F-9T-2WN" kind="show" identifier="GoFechaInicioVC" id="E6u-GB-ld6"/>
                                 </connections>
                             </button>
@@ -1372,10 +1373,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="eUQ-dx-btI">
-                                <rect key="frame" x="0.0" y="203" width="393" height="466"/>
+                                <rect key="frame" x="0.0" y="203" width="393" height="515"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnA-a0-PNH">
-                                <rect key="frame" x="48" y="677" width="86" height="35"/>
+                                <rect key="frame" x="48" y="726" width="86" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Guardar"/>
                                 <connections>
@@ -1383,7 +1384,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFJ-df-Vbd">
-                                <rect key="frame" x="235" y="677" width="92" height="35"/>
+                                <rect key="frame" x="235" y="726" width="92" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cancelar"/>
                                 <connections>
@@ -1415,7 +1416,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="O7b-HB-JMD"/>
+        <segue reference="Uiz-Yh-qOo"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NominaEmpleados" width="500" height="500"/>

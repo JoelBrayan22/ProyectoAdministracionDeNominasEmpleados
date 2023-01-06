@@ -9,8 +9,6 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
-    
     @IBOutlet weak var usuarioTextField: UITextField!
     
     @IBOutlet weak var contraseñaTextField: UITextField!
@@ -29,7 +27,6 @@ class ViewController: UIViewController {
         NominaController.shared.empleadoLogin(correo: correo, password: contraseña)
         
     }
-    
 }
 
 extension ViewController: ViewControllerDelegate {
@@ -44,7 +41,5 @@ extension ViewController: ViewControllerDelegate {
         
         self.present(alert, animated: true)
     }
-    
-    
 }
 

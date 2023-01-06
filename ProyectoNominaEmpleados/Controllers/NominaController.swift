@@ -7,12 +7,15 @@
 
 import Foundation
 
+
+// Enum que brinda la ayuda para elegir el tipo de fecha que seleccionamos
 enum TipoFecha {
         case inicioVacaciones
         case finVacaciones
         case fechaContratacion
         case fechaPago
     }
+
 
 class NominaController {
     
@@ -22,7 +25,8 @@ class NominaController {
     // Instancia a NominaModel
     let model = NominaModel()
     
-    // Delegados para hacer notificaciones a las vistas
+    // MARK: Delegados para hacer notificaciones a las vistas
+    
     var viewControllerDelegate: ViewControllerDelegate?
     var catalogoEmpleadosDelegate: CatalogoEmpleadosDelegate?
     var addEmpleadoDelegate: AddEmpleadoDelegate?
@@ -33,7 +37,9 @@ class NominaController {
     var detallePagoDelegate: DetallePagoDelegate?
     var addPagoDelegate: AddPagoDelegate?
     
-    // Funciones
+    // MARK: Funciones
+    
+    // Loguea un empleado
     func empleadoLogin(correo: String, password: String) {
         
         if let empleado = self.model.empleadoLogIn(correo: correo, password: password) {
@@ -56,7 +62,7 @@ class NominaController {
     // Crear un empleado nuevo en AddEmpleadoVC
     func addEmpleado(id: Int, nombre: String, area: String, departamento: String, puesto: String, fechaContratacion: Date, salario: Double) {
         
-        print("Agregando empleado \(id) \(nombre)")
+        //print("Agregando empleado \(id) \(nombre)")
         
         if let empleado = self.model.addEmpleado(id: Int(Int32.random(in: 1...Int32.max)), nombre: nombre, area: area, departamento: departamento, puesto: puesto, fechaContratacion: fechaContratacion, salario: salario) {
             
@@ -64,34 +70,37 @@ class NominaController {
             catalogoEmpleadosDelegate?.empleado(empleadoCreado: empleado)
             
         }
-        // TODO: como seleccionar la fechaContratacion
     }
     
+    // Selecciona el tipo de fecha de contratacion.
     func seleccionarTipoFechaComoContratacion() {
         
         self.model.tipoFecha = .fechaContratacion
         
     }
     
+    // Selecciona el tipo de fecha de inicio de vacaciones
     func seleccionarTipoFechaComoInicioVacaciones() {
         
         self.model.tipoFecha = .inicioVacaciones
         
     }
     
+    // Selecciona el tipo de fecha de fin de vacacciones
     func seleccionarTipoFechaComoFinVacaciones() {
         
         self.model.tipoFecha = .finVacaciones
         
     }
     
+    // Selecciona el tipo de fecha de pago.
     func seleccionarTipoFechaComoFechaPago() {
         
         self.model.tipoFecha = .fechaPago
         
     }
     
-    // Empleo seleccionado en CatalogoEmpleadosVC
+    // Empleado seleccionado en CatalogoEmpleadosVC
     func seleccionarEmpleado(index: Int, empleado: EmpleadoEntity) {
         
         if let empleado = model.seleccionarEmpleado(index: index, empleado: empleado) {
@@ -117,7 +126,7 @@ class NominaController {
         
     }
     
-    // Selecciona una fecha
+    // Evalua el tipo de fecha deseada, despues de determinar el tipo de fecha, le aignamos la fecha(date) seleccionada.
     func seleccionarFecha(fechaSeleccionada: Date) {
         switch self.model.tipoFecha {
         case .fechaContratacion:

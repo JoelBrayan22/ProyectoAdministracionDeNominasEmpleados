@@ -9,7 +9,6 @@ import UIKit
 
 class DetallesEmpleadoViewController: UIViewController {
 
-    
     @IBOutlet weak var empleadoImageView: UIImageView!
     
     @IBOutlet weak var nombreEmpleadoLabel: UILabel!
