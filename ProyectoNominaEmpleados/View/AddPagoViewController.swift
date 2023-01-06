@@ -9,9 +9,6 @@ import UIKit
 
 class AddPagoViewController: UIViewController {
 
-    
-    @IBOutlet weak var nombrePagoTextField: UITextField!
-    
     @IBOutlet weak var sueldoPagoTextField: UITextField!
     
     @IBOutlet weak var viaticosPagoTextField: UITextField!
@@ -27,7 +24,7 @@ class AddPagoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        NominaController.shared.addPagoDelegate = self
     }
     
     
@@ -36,7 +33,33 @@ class AddPagoViewController: UIViewController {
         let alert = UIAlertController(title: "Atención", message: "¿ Los datos del pago son correctos ?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Si", comment: "Default action"), style: .default, handler: { _ in
-            NSLog("Saliendo ..."); self.navigationController?.popViewController(animated: true)
+            
+            guard let sueldo = self.sueldoPagoTextField.text else {
+                return
+            }
+            
+            guard let viaticos = self.viaticosPagoTextField.text else {
+                return
+            }
+            
+            guard let prestamo = self.prestamoPagoTextField.text else {
+                return
+            }
+            
+            guard let abono = self.abonoPrestamoTextField.text else {
+                return
+            }
+            
+            guard let numeroAbono = self.NumeroAbonoTextField.text else {
+                return
+            }
+            
+            guard let descripcionPrestamo = self.descripcionPrestamoTextField.text else {
+                return
+            }
+            NominaController.shared.agregarPago(fechaPago: Date.now, sueldo: Double(sueldo) ?? 0.0, viaticos: Double(viaticos) ?? 0.0, prestamo: Double(prestamo) ?? 0.0, descripcionPrestamo: descripcionPrestamo, cantidadRestantePrestamo: Double(abono), numeroAbono: Int(numeroAbono) ?? 0)
+            
+            self.navigationController?.popViewController(animated: true)
         }))
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancelar", comment: "Default action"), style: .cancel, handler: { _ in
@@ -65,4 +88,22 @@ class AddPagoViewController: UIViewController {
     
     
 
+}
+
+extension AddPagoViewController: AddPagoDelegate {
+    
+    func salario(salarioCreado salario: PagoEntity) {
+        print("Salario creado Correctamente \(salario) ")
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func salario(salarioCreadoError message: String) {
+        print("Error")
+    }
+    
+    func salario(fechaPago fecha: Date, tipoFech tipo: TipoFecha) {
+        
+    }
+    
+    
 }
