@@ -24,12 +24,17 @@ class AddEmpleadoViewController: UIViewController {
     
     @IBOutlet weak var salarioTextField: UITextField!
     
+    var fechaContratacion: Date? = Date.now
+    
     @IBAction func addFechaContratacionActionButton(_ sender: Any) {
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imagenPerfilEmpleado.layer.cornerRadius = imagenPerfilEmpleado.bounds.size.width / 2.0
+        
+        NominaController.shared.addEmpleadoDelegate = self
+        
         
     }
     
@@ -38,6 +43,38 @@ class AddEmpleadoViewController: UIViewController {
         let alert = UIAlertController(title: "Atención", message: "¿ Desea guardar al empleado ?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Si", comment: "Default action"), style: .default, handler: { _ in
+            
+            guard let nombre = self.nombreTextField.text else {
+                return
+            }
+            
+            guard let id = self.idTextField.text else {
+                return
+            }
+            
+            guard let area = self.areaTextField.text else {
+                return
+            }
+            
+            guard let departamento = self.departamentoTextField.text
+            else {
+                return
+            }
+            
+            guard let puesto = self.puestoTextField.text
+            else {
+                return
+            }
+            
+            guard let salario = self.salarioTextField.text
+            else {
+                return
+            }
+            
+            guard let fechaContratacion = self.fechaContratacion else {
+                return
+            }
+            NominaController.shared.addEmpleado(id: Int(id)!, nombre: nombre, area: area, departamento: departamento, puesto: puesto, fechaContratacion: fechaContratacion, salario: Double(salario)!)
             NSLog("Empleado Guardado")
         }))
         
@@ -62,6 +99,27 @@ class AddEmpleadoViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
         
+    }
+    
+}
+extension AddEmpleadoViewController: AddEmpleadoDelegate {
+    
+    func empleado(fechaContratado fecha: Date) {
+        self.fechaContratacion = fecha
+    }
+    
+    func empleado(empleadoCreado empleado: EmpleadoEntity) {
+        print("Empleado Creado Correctamente \(empleado)")
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func empleado(empleadoCreadoError message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+                
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .default))
+                
+                self.present(alert, animated: true)
     }
     
 }

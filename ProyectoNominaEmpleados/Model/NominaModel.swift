@@ -111,6 +111,8 @@ class NominaModel {
     
     func addEmpleado(id: Int, nombre: String, area: String, departamento: String, puesto: String, fechaContratacion: Date, salario: Double) -> EmpleadoEntity? {
         
+        print("Recibiendo empleado: \(id) \(nombre)")
+        
         let context = persistentContainer.viewContext
         
         let empleado = EmpleadoEntity(context: context)
@@ -134,6 +136,8 @@ class NominaModel {
             try context.save()
             
             self.loadEmpleados()
+            
+            print("Empleado guardado: \(id) \(nombre)")
             
             return empleado
         } catch {
