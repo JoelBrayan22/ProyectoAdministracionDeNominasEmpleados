@@ -68,7 +68,7 @@ class AddEmpleadoViewController: UIViewController {
             guard let fechaContratacion = self.fechaContratacion else {
                 return self.empleado(empleadoCreadoError: "Error, la fecha es requerido")
             }
-            NominaController.shared.addEmpleado(id: Int(Int32.random(in: 1...Int32.max)), nombre: nombre, area: area, departamento: departamento, puesto: puesto, fechaContratacion: fechaContratacion, salario: Double(salario)!)
+            NominaController.shared.addEmpleado(id: Int(Int32.random(in: 1...Int32.max)), nombre: nombre, area: area, departamento: departamento, puesto: puesto, fechaContratacion: fechaContratacion, salario: Double(salario) ?? 0.0)
             NSLog("Empleado Guardado")
         }))
         
