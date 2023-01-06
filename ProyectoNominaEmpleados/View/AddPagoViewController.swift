@@ -17,7 +17,7 @@ class AddPagoViewController: UIViewController {
     
     @IBOutlet weak var abonoPrestamoTextField: UITextField!
     
-    @IBOutlet weak var NumeroAbonoTextField: UITextField!
+    @IBOutlet weak var numeroAbonoTextField: UITextField!
     
     @IBOutlet weak var descripcionPrestamoTextField: UITextField!
     
@@ -55,7 +55,7 @@ class AddPagoViewController: UIViewController {
                 return
             }
             
-            guard let numeroAbono = self.NumeroAbonoTextField.text else {
+            guard let numeroAbono = self.numeroAbonoTextField.text else {
                 return
             }
             
@@ -64,7 +64,7 @@ class AddPagoViewController: UIViewController {
             }
             NominaController.shared.agregarPago(fechaPago: Date.now, sueldo: Double(sueldo) ?? 0.0, viaticos: Double(viaticos) ?? 0.0, prestamo: Double(prestamo) ?? 0.0, descripcionPrestamo: descripcionPrestamo, cantidadRestantePrestamo: Double(abono), numeroAbono: Int(numeroAbono) ?? 0)
             
-            self.navigationController?.popViewController(animated: true)
+
         }))
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancelar", comment: "Default action"), style: .cancel, handler: { _ in

@@ -118,7 +118,7 @@ class NominaController {
     
     // Obtener todo el historial de pagos del empleado
     func obtenerHistorialPagos() {
-        
+        print("Empleado seleccionado: \(self.model.empleadoSeleccionado?.id ?? -1)")
         historialNominaDelegate?.pago(historialPagos: self.model.pagos.filter({
             pago in
             pago.empleado == self.model.empleadoSeleccionado

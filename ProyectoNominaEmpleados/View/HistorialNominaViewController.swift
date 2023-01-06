@@ -80,7 +80,7 @@ extension HistorialNominaViewController: UITableViewDataSource {
         if let customCell = cell as? NominaCustomTableViewCell {
             customCell.nombreNominaLabel.text = pago.nombreEmpleado
             customCell.fechaPagoLabel.text = formatter.string(from: pago.fechaPago ?? Date.now)
-            customCell.cantidadLabel.text = formatterCurrency.string(from: pago.sueldo - pago.viaticos - pago.prestamo as NSNumber)
+            customCell.cantidadLabel.text = formatterCurrency.string(from: pago.sueldo + pago.viaticos - pago.cantidadRestantePrestamo as NSNumber)
         }
         
         return cell
