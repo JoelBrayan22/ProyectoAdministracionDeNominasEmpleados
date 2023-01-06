@@ -34,11 +34,20 @@ class DetallesEmpleadoViewController: UIViewController {
 
         empleadoImageView.layer.cornerRadius = empleadoImageView.bounds.size.width / 2.0
         
-        // Creamos un formatter para representar datos tipo Date en forma de String
+        // Creamos diferentes formatters para representar datos tipo Date y Double en
+        // forma de String más comprensibles para el usuario
         let formatter = DateFormatter()
         formatter.dateFormat = "dd/MM/yyyy"
         
-        // Desengrapamos la variable tienePrestamos del empleado seleccionamos
+        let formatterTimeAgo = DateFormatter()
+        formatterTimeAgo.dateFormat = "yyyyMMdd"
+        
+        let formatterCurrency = NumberFormatter()
+        formatterCurrency.locale = Locale.current
+        formatterCurrency.numberStyle = .currency
+        
+        // Usamos una variable auxiliar para facilitar el desengrapado y uso de la variable
+        // tienePrestamos del empleado seleccionado
         var tienePrestamo: Bool
         
         if let unwrapTienePrestamo = NominaController.shared.model.empleadoSeleccionado?.tienePrestamo {
@@ -67,9 +76,11 @@ class DetallesEmpleadoViewController: UIViewController {
             
             prestamoEmpleadoLabel.text = "No"
         }
-        antiguedadEmpleadoLabel.text = String(Int(NominaController.shared.model.empleadoSeleccionado?.antiguedad ?? 0))
+        antiguedadEmpleadoLabel.text = "\(Int(formatterTimeAgo.string(from: Date.now))! - Int(formatterTimeAgo.string(from: NominaController.shared.model.empleadoSeleccionado?.fechaContratacion ?? Date.now))!) días"
+//        String(Int(NominaController.shared.model.empleadoSeleccionado?.antiguedad ?? 0))
         
-        salarioEmpleadoLabel.text = String(NominaController.shared.model.empleadoSeleccionado?.salario ?? 0.0)
+        salarioEmpleadoLabel.text = formatterCurrency.string(for: NominaController.shared.model.empleadoSeleccionado?.salario ?? 0.0)
+        //String(NominaController.shared.model.empleadoSeleccionado?.salario ?? 0.0)
         
     }
     
@@ -80,6 +91,7 @@ class DetallesEmpleadoViewController: UIViewController {
     }
     
     @IBAction func nominaEmpleadoActionButton(_ sender: Any) {
+        
     }
     
 
