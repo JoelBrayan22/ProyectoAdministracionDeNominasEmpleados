@@ -1045,6 +1045,7 @@
                                             </backgroundConfiguration>
                                         </buttonConfiguration>
                                         <connections>
+                                            <action selector="finVacacionesAction:" destination="M0t-WD-95V" eventType="touchUpInside" id="aGd-nf-9Qv"/>
                                             <segue destination="W1F-9T-2WN" kind="show" identifier="GoFechaFinVC" id="Uiz-Yh-qOo"/>
                                         </connections>
                                     </button>

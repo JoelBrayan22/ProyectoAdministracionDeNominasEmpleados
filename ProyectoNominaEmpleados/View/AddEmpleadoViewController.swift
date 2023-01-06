@@ -96,9 +96,11 @@ class AddEmpleadoViewController: UIViewController {
     }
     
 }
+
 extension AddEmpleadoViewController: AddEmpleadoDelegate {
     
     func empleado(fechaContratado fecha: Date) {
+        print("FECHA CONTRATACIÓN: \(fecha)")
         self.fechaContratacion = fecha
     }
     
