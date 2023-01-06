@@ -14,8 +14,6 @@ class AddEmpleadoViewController: UIViewController {
     
     @IBOutlet weak var nombreTextField: UITextField!
     
-    @IBOutlet weak var idTextField: UITextField!
-    
     @IBOutlet weak var areaTextField: UITextField!
     
     @IBOutlet weak var departamentoTextField: UITextField!
@@ -45,36 +43,32 @@ class AddEmpleadoViewController: UIViewController {
         alert.addAction(UIAlertAction(title: NSLocalizedString("Si", comment: "Default action"), style: .default, handler: { _ in
             
             guard let nombre = self.nombreTextField.text else {
-                return
-            }
-            
-            guard let id = self.idTextField.text else {
-                return
+                return self.empleado(empleadoCreadoError: "Error, el nombre es requerido")
             }
             
             guard let area = self.areaTextField.text else {
-                return
+                return self.empleado(empleadoCreadoError: "Error, el area es requerida")
             }
             
             guard let departamento = self.departamentoTextField.text
             else {
-                return
+                return self.empleado(empleadoCreadoError: "Error el departamento es requerido")
             }
             
             guard let puesto = self.puestoTextField.text
             else {
-                return
+                return self.empleado(empleadoCreadoError: "Error, el puesto es requerido")
             }
             
             guard let salario = self.salarioTextField.text
             else {
-                return
+                return self.empleado(empleadoCreadoError: "Error, el salario es requerido")
             }
             
             guard let fechaContratacion = self.fechaContratacion else {
-                return
+                return self.empleado(empleadoCreadoError: "Error, la fecha es requerido")
             }
-            NominaController.shared.addEmpleado(id: Int(id)!, nombre: nombre, area: area, departamento: departamento, puesto: puesto, fechaContratacion: fechaContratacion, salario: Double(salario)!)
+            NominaController.shared.addEmpleado(id: Int(Int32.random(in: 1...Int32.max)), nombre: nombre, area: area, departamento: departamento, puesto: puesto, fechaContratacion: fechaContratacion, salario: Double(salario)!)
             NSLog("Empleado Guardado")
         }))
         
