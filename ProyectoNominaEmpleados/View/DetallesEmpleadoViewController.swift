@@ -34,6 +34,30 @@ class DetallesEmpleadoViewController: UIViewController {
 
         empleadoImageView.layer.cornerRadius = empleadoImageView.bounds.size.width / 2.0
         
+        NominaController.shared.detallesEmpleadoDelegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        NominaController.shared.getEmpleadoSeleccionado()
+    }
+    
+    @IBAction func vacacionesEmpleadoActionButton(_ sender: Any) {
+    }
+    
+    @IBAction func generarPagoEmpleadoActionButton(_ sender: Any) {
+    }
+    
+    @IBAction func nominaEmpleadoActionButton(_ sender: Any) {
+        
+    }
+    
+
+}
+
+extension DetallesEmpleadoViewController: DetallesEmpleadoDelegate {
+    
+    func empleado(empleadoSeleccionado empleado: EmpleadoEntity) {
+        
         // Creamos diferentes formatters para representar datos tipo Date y Double en
         // forma de String más comprensibles para el usuario
         let formatter = DateFormatter()
@@ -81,18 +105,10 @@ class DetallesEmpleadoViewController: UIViewController {
         
         salarioEmpleadoLabel.text = formatterCurrency.string(for: NominaController.shared.model.empleadoSeleccionado?.salario ?? 0.0)
         //String(NominaController.shared.model.empleadoSeleccionado?.salario ?? 0.0)
+    }
+    
+    func empleado(vacacionesSeleccionadas vacaciones: Date, tipoFecha tipo: TipoFecha) {
         
     }
-    
-    @IBAction func vacacionesEmpleadoActionButton(_ sender: Any) {
-    }
-    
-    @IBAction func generarPagoEmpleadoActionButton(_ sender: Any) {
-    }
-    
-    @IBAction func nominaEmpleadoActionButton(_ sender: Any) {
-        
-    }
-    
 
 }
