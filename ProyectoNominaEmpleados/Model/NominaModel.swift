@@ -24,33 +24,42 @@ class NominaModel {
         return container
     }()
     
+    // Almacena al empleado logueado
     var empleadoLogueado: EmpleadoEntity?
     
-    // Variable global que almacenara al empleado seleccionado
+    // Almacenara al empleado seleccionado del catalogo de empleados
     var empleadoSeleccionado: EmpleadoEntity?
     
-    // Variable global que almacenara todos los empleadosz
+    // Almacenara todos los empleados existentes
     var empleados: [EmpleadoEntity] = []
     
-    // Variable global que almacenara el pago seleccionado
+    // Almacenara el pago seleccionado en el historial de pagos
     var pagoSeleccionado: PagoEntity?
     
-    // Variable global que almacenara todos los pagos
+    // Almacenara todos los pagos de un empleado dado
     var pagos: [PagoEntity] = []
     
-    // Variable seleccionado que almacena una fecha seleccionada
+    // Almacena la fecha de contratacion del empleado
     var fechaContratacion: Date?
+    
+    // Almacena la fecha de inicio de vacaciones del empleado
     var fechaInicioVacaciones: Date?
+    
+    // ALmacenara la fecha de fin de vacaciones del empleado
     var fechaFinVacaciones: Date?
+    
+    // ALmacenara la fecha en que se genera un pago al empleado
     var fechaPago: Date?
     
     // Variable global que retiene el tipo de fecha seleccionada
     var tipoFecha: TipoFecha?
     
+    
     let logIn: [(correo: String, password: String)] =
                 [("heber@gs.com","1234"),
                  ("joel@gs.com","1234"),
                  ("brian@gs.com", "1234")]
+    
     
     func instalarEmpleados() {
         print("Instalando empleados")
@@ -111,6 +120,8 @@ class NominaModel {
     
     func addEmpleado(id: Int, nombre: String, area: String, departamento: String, puesto: String, fechaContratacion: Date, salario: Double) -> EmpleadoEntity? {
         
+        print("Recibiendo empleado: \(id) \(nombre)")
+        
         let context = persistentContainer.viewContext
         
         let empleado = EmpleadoEntity(context: context)
@@ -134,6 +145,8 @@ class NominaModel {
             try context.save()
             
             self.loadEmpleados()
+            
+            print("Empleado guardado: \(id) \(nombre)")
             
             return empleado
         } catch {
