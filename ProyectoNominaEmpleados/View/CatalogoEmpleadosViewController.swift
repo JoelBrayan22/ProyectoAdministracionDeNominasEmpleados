@@ -8,7 +8,6 @@
 import UIKit
 
 class CatalogoEmpleadosViewController: UIViewController {
-
     
     @IBOutlet weak var myTableView: UITableView!
     
@@ -24,9 +23,14 @@ class CatalogoEmpleadosViewController: UIViewController {
         // Esta vista es la proveedora de los datos
         myTableView.dataSource = self
         
+        // Esta vista es el delegate del tableView
+        myTableView.delegate = self
+        
         // Le pedimos al controlador que nos brinde todos los empleados existentes
         NominaController.shared.getEmpleados()
         
+        // Ligamos el ViewController actual con su Delegate
+        NominaController.shared.catalogoEmpleadosDelegate = self
     }
 }
 
@@ -48,6 +52,13 @@ extension CatalogoEmpleadosViewController: CatalogoEmpleadosDelegate {
     }
     
     func empleado(empleadoSeleccionado empleado: EmpleadoEntity, index: Int) {
+        //cuando el modelo actualice al empleado seleccionado, el controlador
+        //notifica si la acción se realizó correctamente, para que la vista
+        //pueda (o no), actualizarse con un perform segue.
+        if let _ = NominaController.shared.model.empleadoSeleccionado {
+            
+            self.performSegue(withIdentifier: "GoDetallesEmpleadoVC", sender: nil)
+        }
         
     }
     
@@ -83,8 +94,10 @@ extension CatalogoEmpleadosViewController: UITableViewDataSource {
         if let customCell = cell as? CustomTableViewCell {
             //print(empleado.nombre)
             customCell.nombreLabel.text = empleado.nombre
-            customCell.idLabel.text = ""
+            customCell.idLabel.text = "\(empleado.id)"
             customCell.puestoLabel.text = empleado.puesto
+            customCell.horarioLabel.text = "\(empleado.fechaVacacionesInicio ?? Date.now)"
+            customCell.antiguedadLabel.text = "\(empleado.antiguedad)"
         }
         
         return cell
@@ -95,7 +108,10 @@ extension CatalogoEmpleadosViewController: UITableViewDataSource {
 extension CatalogoEmpleadosViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Presionado")
+        
+        //Le solicitamos al controlador que actualice al modelo en su variable
+        //empleadoSeleccionado
+        NominaController.shared.seleccionarEmpleado(index: indexPath.row, empleado: NominaController.shared.model.empleadoSeleccionado ?? EmpleadoEntity().self)
     }
     
 }

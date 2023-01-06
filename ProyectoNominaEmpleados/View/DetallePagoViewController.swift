@@ -31,10 +31,25 @@ class DetallePagoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NominaController.shared.detallePagoDelegate = self
+        
+    }
 
-       
+    override func viewWillAppear(_ animated: Bool) {
+        NominaController.shared.getPagoSeleccionado()
     }
     
+}
 
-
+extension DetallePagoViewController: DetallePagoDelegate {
+    func salario(pagoSeleccionado pago: PagoEntity) {
+        nombrePagoLabel.text = pago.nombreEmpleado
+        if let fechaPago = pago.fechaPago {
+            fechaPagoLabel.text = fechaPago.toString
+        }
+        
+    }
+    
+    
 }
