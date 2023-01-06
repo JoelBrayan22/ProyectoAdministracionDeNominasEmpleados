@@ -9,7 +9,7 @@ import UIKit
 
 class DetallePagoViewController: UIViewController {
 
-    
+    // Conexion de labels a la vista
     @IBOutlet weak var nombrePagoLabel: UILabel!
     
     @IBOutlet weak var fechaPagoLabel: UILabel!
@@ -26,16 +26,17 @@ class DetallePagoViewController: UIViewController {
     
     @IBOutlet weak var descripcionPrestamoLabel: UILabel!
     
-    @IBOutlet weak var DeudaRestanteLabel: UILabel!
+    @IBOutlet weak var deudaRestanteLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ///Llamada al delegado (DetallePagoDelegate)
         NominaController.shared.detallePagoDelegate = self
         
     }
-
+        ///Llamada  a la función para obtener el pago seleccionnado
     override func viewWillAppear(_ animated: Bool) {
         NominaController.shared.getPagoSeleccionado()
     }
@@ -61,7 +62,7 @@ extension DetallePagoViewController: DetallePagoDelegate {
         cantidadAbonosLabel.text = pago.numeroAbono.toString
         abonoPrestamoLabel.text = formatterCurrency.string(from: pago.cantidadRestantePrestamo as NSNumber)
         descripcionPrestamoLabel.text = pago.descripcionPrestamo
-        DeudaRestanteLabel.text = formatterCurrency.string(from: pago.prestamo - (pago.cantidadRestantePrestamo * Double(pago.numeroAbono)) as NSNumber)
+        deudaRestanteLabel.text = formatterCurrency.string(from: pago.prestamo - (pago.cantidadRestantePrestamo * Double(pago.numeroAbono)) as NSNumber)
         
     }
     

@@ -187,7 +187,12 @@ class NominaModel {
         guard index >= 0 && index < self.pagos.count
         else { return nil }
         
-        self.pagoSeleccionado = self.pagos[index]
+        let pagos = self.pagos.filter {
+            pago in
+            pago.empleado == self.empleadoSeleccionado
+        }
+        
+        self.pagoSeleccionado = pagos[index]
         
         return self.pagoSeleccionado
     }
