@@ -112,6 +112,42 @@ class NominaController {
         }
     }
     
+    func addFechaInicioVacaciones(fecha: Date) {
+        
+        if let empleadoSelected = self.model.empleadoSeleccionado {
+            
+            if let empleado = self.model.addFechaInicioVacaciones(fecha: fecha) {
+                
+                catalogoEmpleadosDelegate?.empleado(empleadosCargados: self.model.empleados)
+                detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleado)
+            }
+        }
+    }
+    
+    func addFechaFinVacaciones(fecha: Date) {
+        
+        if let empleadoSelected = self.model.empleadoSeleccionado {
+            
+            if let empleado = self.model.addFechaFinVacaciones(fecha: fecha) {
+                
+                catalogoEmpleadosDelegate?.empleado(empleadosCargados: self.model.empleados)
+                detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleado)
+            }
+        }
+    }
+    /*
+    func addFechaPago(fecha: Date) {
+        
+        if let empleadoSelected = self.model.empleadoSeleccionado {
+            
+            if let empleado = self.model.addFechaFinVacaciones(fecha: fecha) {
+                
+                catalogoEmpleadosDelegate?.empleado(empleadosCargados: self.model.empleados)
+                detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleado)
+            }
+        }
+    }*/
+    
     // Empleado seleccionado en CatalogoEmpleadosVC
     func seleccionarEmpleado(index: Int, empleado: EmpleadoEntity) {
         
