@@ -53,10 +53,17 @@ class SeleccionarVacacionesViewController: UIViewController {
 extension SeleccionarVacacionesViewController: SeleccionarVacacionesDelegate {
     
     func empleado(fechaSeleccionada fecha: Date, tipoFecha tipo: TipoFecha) {
-        
-        //fechaFinVacacionesLabel.text = fecha
-        
-        //fechaFinVacacionesLabel.text = fecha
+    
+        switch tipo {
+        case .inicioVacaciones:
+            fechaInicioVacacionesLabel.text = "\(fecha)"
+            NominaController.shared.updateEmpleado(fecha: fecha)
+        case .finVacaciones:
+            fechaFinVacacionesLabel.text = "\(fecha)"
+            NominaController.shared.updateEmpleado(fecha: fecha)
+        default:
+            print("Tiop no válido")
+        }
         
     }
 }
