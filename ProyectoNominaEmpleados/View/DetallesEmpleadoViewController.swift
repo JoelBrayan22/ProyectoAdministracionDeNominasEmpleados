@@ -34,6 +34,43 @@ class DetallesEmpleadoViewController: UIViewController {
 
         empleadoImageView.layer.cornerRadius = empleadoImageView.bounds.size.width / 2.0
         
+        // Creamos un formatter para representar datos tipo Date en forma de String
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        
+        // Desengrapamos la variable tienePrestamos del empleado seleccionamos
+        var tienePrestamo: Bool
+        
+        if let unwrapTienePrestamo = NominaController.shared.model.empleadoSeleccionado?.tienePrestamo {
+            
+            tienePrestamo = unwrapTienePrestamo
+        } else {
+            
+            tienePrestamo = false
+        }
+        
+        // Actualiza la Vista con los datos que recibimos del empleado seleccionado (Controller)
+        nombreEmpleadoLabel.text = NominaController.shared.model.empleadoSeleccionado?.nombre
+        
+        idEmpleadoLabel.text = String(Int(NominaController.shared.model.empleadoSeleccionado?.id ?? 0))
+        
+        empleadoVacacionesLabel.text = "\(formatter.string(from: NominaController.shared.model.empleadoSeleccionado?.fechaVacacionesInicio ?? Date.now)) - \(formatter.string(from: NominaController.shared.model.empleadoSeleccionado?.fechaVacacionesFin ?? Date.now))"
+        
+        areaEmpleadoLabel.text = NominaController.shared.model.empleadoSeleccionado?.area
+        
+        departamentoEmpleadoLabel.text = NominaController.shared.model.empleadoSeleccionado?.departamento
+        
+        if tienePrestamo {
+            
+            prestamoEmpleadoLabel.text = "Sí"
+        } else {
+            
+            prestamoEmpleadoLabel.text = "No"
+        }
+        antiguedadEmpleadoLabel.text = String(Int(NominaController.shared.model.empleadoSeleccionado?.antiguedad ?? 0))
+        
+        salarioEmpleadoLabel.text = String(NominaController.shared.model.empleadoSeleccionado?.salario ?? 0.0)
+        
     }
     
     @IBAction func vacacionesEmpleadoActionButton(_ sender: Any) {
