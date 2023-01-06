@@ -1361,10 +1361,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="eUQ-dx-btI">
-                                <rect key="frame" x="0.0" y="203" width="393" height="466"/>
+                                <rect key="frame" x="0.0" y="203" width="393" height="515"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YnA-a0-PNH">
-                                <rect key="frame" x="48" y="677" width="86" height="35"/>
+                                <rect key="frame" x="48" y="726" width="86" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Guardar"/>
                                 <connections>
@@ -1372,7 +1372,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFJ-df-Vbd">
-                                <rect key="frame" x="235" y="677" width="92" height="35"/>
+                                <rect key="frame" x="235" y="726" width="92" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Cancelar"/>
                                 <connections>
@@ -1404,7 +1404,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="O7b-HB-JMD"/>
+        <segue reference="rTt-ZZ-4u0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="NominaEmpleados" width="500" height="500"/>
