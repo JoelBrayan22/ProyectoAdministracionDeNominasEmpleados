@@ -12,12 +12,8 @@ class CalendarioViewController: UIViewController {
     
     @IBOutlet weak var calendarioDatePicker: UIDatePicker!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
     }
     
 

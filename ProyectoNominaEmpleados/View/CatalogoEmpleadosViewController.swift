@@ -7,28 +7,33 @@
 
 import UIKit
 
-class CatalogosEmpleadosViewController: UIViewController {
+class CatalogoEmpleadosViewController: UIViewController {
 
     
     @IBOutlet weak var myTableView: UITableView!
     
+    // Variable donde se guardara Todos los empleados existentes
     var empleados: [EmpleadoEntity] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // El catalogoEmpleadosDelegate sera esta vista
         NominaController.shared.catalogoEmpleadosDelegate = self
         
+        // Esta vista es la proveedora de los datos
         myTableView.dataSource = self
         
+        // Le pedimos al controlador que nos brinde todos los empleados existentes
         NominaController.shared.getEmpleados()
         
     }
-    
-
 }
 
-extension CatalogosEmpleadosViewController: CatalogoEmpleadosDelegate {
+// Extension de CatalogosEmpleadosViewController para implementar CatalogoEmpleadosDelegate
+extension CatalogoEmpleadosViewController: CatalogoEmpleadosDelegate {
+    
+    //
     func empleado(empleadosCargados empleados: [EmpleadoEntity]) {
         self.empleados = empleados
         self.myTableView.reloadData()
@@ -48,16 +53,24 @@ extension CatalogosEmpleadosViewController: CatalogoEmpleadosDelegate {
     
 }
 
-extension CatalogosEmpleadosViewController: UITableViewDataSource {
+extension CatalogoEmpleadosViewController: UITableViewDataSource {
     
+    // Numero de secciones que se requiere pintar en la celda
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    // Cantidad de elementos que se requieren en la seccion deseada
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return empleados.count
     }
     
+    // Titulo deseado en cada seccion
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Empleados"
+    }
+    
+    // Configuracion de la celda
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EmpleadoCell")!
         
@@ -68,23 +81,18 @@ extension CatalogosEmpleadosViewController: UITableViewDataSource {
         //print(self.empleados)
         
         if let customCell = cell as? CustomTableViewCell {
-            print(empleado.nombre)
+            //print(empleado.nombre)
             customCell.nombreLabel.text = empleado.nombre
+            customCell.idLabel.text = ""
+            customCell.puestoLabel.text = empleado.puesto
         }
         
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Empleados"
-    }
-    
-    
-    
-    
+   
 }
 
-extension CatalogosEmpleadosViewController: UITableViewDelegate {
+extension CatalogoEmpleadosViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Presionado")

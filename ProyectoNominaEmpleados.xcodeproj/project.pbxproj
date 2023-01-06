@@ -10,7 +10,7 @@
 		CE93E19C296732DE00D71D43 /* NominaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93E19B296732DE00D71D43 /* NominaModel.swift */; };
 		CE93E19E2967539900D71D43 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93E19D2967539900D71D43 /* ViewController.swift */; };
 		CE93E1A029675A0C00D71D43 /* NominaCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE93E19F29675A0C00D71D43 /* NominaCustomTableViewCell.swift */; };
-		FA294E5E2964E55B0046F824 /* CatalogosEmpleadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E5D2964E55B0046F824 /* CatalogosEmpleadosViewController.swift */; };
+		FA294E5E2964E55B0046F824 /* CatalogoEmpleadosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E5D2964E55B0046F824 /* CatalogoEmpleadosViewController.swift */; };
 		FA294E602964E5710046F824 /* AddEmpleadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E5F2964E5710046F824 /* AddEmpleadoViewController.swift */; };
 		FA294E622964E5850046F824 /* CalendarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E612964E5850046F824 /* CalendarioViewController.swift */; };
 		FA294E642964E5980046F824 /* DetallesEmpleadoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA294E632964E5980046F824 /* DetallesEmpleadoViewController.swift */; };
@@ -61,7 +61,7 @@
 		CE93E19B296732DE00D71D43 /* NominaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NominaModel.swift; sourceTree = "<group>"; };
 		CE93E19D2967539900D71D43 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE93E19F29675A0C00D71D43 /* NominaCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NominaCustomTableViewCell.swift; sourceTree = "<group>"; };
-		FA294E5D2964E55B0046F824 /* CatalogosEmpleadosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogosEmpleadosViewController.swift; sourceTree = "<group>"; };
+		FA294E5D2964E55B0046F824 /* CatalogoEmpleadosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogoEmpleadosViewController.swift; sourceTree = "<group>"; };
 		FA294E5F2964E5710046F824 /* AddEmpleadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEmpleadoViewController.swift; sourceTree = "<group>"; };
 		FA294E612964E5850046F824 /* CalendarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarioViewController.swift; sourceTree = "<group>"; };
 		FA294E632964E5980046F824 /* DetallesEmpleadoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetallesEmpleadoViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +123,7 @@
 		FA859F40296762DC0061F46B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA859F4A2967632E0061F46B /* NominaController.swift */,
 				FA859F482967632E0061F46B /* AddEmpleadoDelegate.swift */,
 				FA859F432967632D0061F46B /* AddPagoDelegate.swift */,
 				FA859F412967632D0061F46B /* CalendarioDelegate.swift */,
@@ -130,7 +131,6 @@
 				FA859F452967632D0061F46B /* DetallePagoDelegate.swift */,
 				FA859F422967632D0061F46B /* DetallesEmpleadoDelegate.swift */,
 				FA859F442967632D0061F46B /* HistorialNominaDelegate.swift */,
-				FA859F4A2967632E0061F46B /* NominaController.swift */,
 				FA859F462967632D0061F46B /* SeleccionarVacacionesDelegate.swift */,
 				FA859F492967632E0061F46B /* ViewControllerDelegate.swift */,
 			);
@@ -205,7 +205,7 @@
 			children = (
 				FAA45DA72967587900195786 /* CustomTableViewCell.swift */,
 				CE93E19F29675A0C00D71D43 /* NominaCustomTableViewCell.swift */,
-				FA294E5D2964E55B0046F824 /* CatalogosEmpleadosViewController.swift */,
+				FA294E5D2964E55B0046F824 /* CatalogoEmpleadosViewController.swift */,
 				FA294E5F2964E5710046F824 /* AddEmpleadoViewController.swift */,
 				FA294E612964E5850046F824 /* CalendarioViewController.swift */,
 				FA294E632964E5980046F824 /* DetallesEmpleadoViewController.swift */,
@@ -371,7 +371,7 @@
 				FAA45DA82967587900195786 /* CustomTableViewCell.swift in Sources */,
 				FA294E6A2964E8210046F824 /* DetallePagoViewController.swift in Sources */,
 				FA859F4D2967632E0061F46B /* AddPagoDelegate.swift in Sources */,
-				FA294E5E2964E55B0046F824 /* CatalogosEmpleadosViewController.swift in Sources */,
+				FA294E5E2964E55B0046F824 /* CatalogoEmpleadosViewController.swift in Sources */,
 				FAFB7BE92964ABC100D64A70 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
