@@ -45,19 +45,23 @@ class DetallePagoViewController: UIViewController {
 extension DetallePagoViewController: DetallePagoDelegate {
     func salario(pagoSeleccionado pago: PagoEntity) {
         
+        let formatterCurrency = NumberFormatter()
+        formatterCurrency.locale = Locale.current
+        formatterCurrency.numberStyle = .currency
+        
         nombrePagoLabel.text = pago.nombreEmpleado
         
         if let fechaPago = pago.fechaPago {
             fechaPagoLabel.text = fechaPago.toString
         }
         
-        sueldoLabel.text = pago.sueldo.toString
-        viaticosLabel.text = pago.viaticos.toString
-        prestamoPagoLabel.text = pago.prestamo.toString
-        abonoPrestamoLabel.text = pago.numeroAbono.toString
-        cantidadAbonosLabel.text = pago.cantidadRestantePrestamo.toString
+        sueldoLabel.text = formatterCurrency.string(from: pago.sueldo as NSNumber)
+        viaticosLabel.text = formatterCurrency.string(from: pago.viaticos as NSNumber)
+        prestamoPagoLabel.text = formatterCurrency.string(from: pago.prestamo as NSNumber)
+        cantidadAbonosLabel.text = pago.numeroAbono.toString
+        abonoPrestamoLabel.text = formatterCurrency.string(from: pago.cantidadRestantePrestamo as NSNumber)
         descripcionPrestamoLabel.text = pago.descripcionPrestamo
-        DeudaRestanteLabel.text = pago.cantidadRestantePrestamo.toString
+        DeudaRestanteLabel.text = formatterCurrency.string(from: pago.prestamo - (pago.cantidadRestantePrestamo * Double(pago.numeroAbono)) as NSNumber)
         
     }
     
