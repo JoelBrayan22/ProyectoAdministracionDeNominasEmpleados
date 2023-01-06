@@ -83,8 +83,10 @@ extension CatalogoEmpleadosViewController: UITableViewDataSource {
         if let customCell = cell as? CustomTableViewCell {
             //print(empleado.nombre)
             customCell.nombreLabel.text = empleado.nombre
-            customCell.idLabel.text = ""
+            customCell.idLabel.text = "\(empleado.id)"
             customCell.puestoLabel.text = empleado.puesto
+            customCell.horarioLabel.text = "\(empleado.fechaVacacionesInicio ?? Date.now)"
+            customCell.antiguedadLabel.text = "\(empleado.antiguedad)"
         }
         
         return cell
