@@ -100,6 +100,10 @@ class NominaController {
         
     }
     
+    func guardarFechasEmpleadoSeleccionado() {
+        self.model.guardarEmpleadoSeleccionado()
+    }
+    
     func updateEmpleado(fecha: Date) {
         
         if let empleadoSelected = self.model.empleadoSeleccionado {
@@ -135,18 +139,18 @@ class NominaController {
             }
         }
     }
-    /*
+    
     func addFechaPago(fecha: Date) {
         
         if let empleadoSelected = self.model.empleadoSeleccionado {
             
-            if let empleado = self.model.addFechaFinVacaciones(fecha: fecha) {
+            if let _ = self.model.addFechaFinVacaciones(fecha: fecha) {
                 
                 catalogoEmpleadosDelegate?.empleado(empleadosCargados: self.model.empleados)
-                detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleado)
+                detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleadoSelected)
             }
         }
-    }*/
+    }
     
     // Empleado seleccionado en CatalogoEmpleadosVC
     func seleccionarEmpleado(index: Int, empleado: EmpleadoEntity) {
@@ -161,6 +165,19 @@ class NominaController {
     func getEmpleadoSeleccionado() {
         if let empleadoSeleccionado = self.model.empleadoSeleccionado {
             detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleadoSeleccionado)
+        }
+    }
+    
+    func getEmpleadoSeleccionadoFechasVacaciones() {
+        print("OBTENIENDO FECHAS VACACIONES")
+        if let empleadoSeleccionado = self.model.empleadoSeleccionado {
+            print(empleadoSeleccionado)
+            if let fechaVacacionesInicio = empleadoSeleccionado.fechaVacacionesInicio {
+                seleccionarVacacionesDelegate?.empleado(fechaSeleccionada: fechaVacacionesInicio, tipoFecha: .inicioVacaciones)
+            }
+            if let fechaVacacionesFin = empleadoSeleccionado.fechaVacacionesFin {
+                seleccionarVacacionesDelegate?.empleado(fechaSeleccionada: fechaVacacionesFin, tipoFecha: .finVacaciones)
+            }
         }
     }
     
