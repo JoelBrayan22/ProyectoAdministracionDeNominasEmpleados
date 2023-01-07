@@ -19,11 +19,16 @@ class SeleccionarVacacionesViewController: UIViewController {
         NominaController.shared.seleccionarVacacionesDelegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        NominaController.shared.getEmpleadoSeleccionadoFechasVacaciones()
+    }
+    
     @IBAction func aceptarFechasVacacionesActionButton(_ sender: Any) {
         
         let alert = UIAlertController(title: "Atención", message: "¿ Los datos son correctos ?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Si", comment: "Default action"), style: .default, handler: { _ in
+            NominaController.shared.guardarFechasEmpleadoSeleccionado()
             NSLog("Saliendo ..."); self.navigationController?.popViewController(animated: true)
         }))
         
@@ -53,10 +58,18 @@ class SeleccionarVacacionesViewController: UIViewController {
 extension SeleccionarVacacionesViewController: SeleccionarVacacionesDelegate {
     
     func empleado(fechaSeleccionada fecha: Date, tipoFecha tipo: TipoFecha) {
-        
-        //fechaFinVacacionesLabel.text = fecha
-        
-        //fechaFinVacacionesLabel.text = fecha
+        print("RECIBIENDO FECHAS DE VACACIONE")
+        switch tipo {
+        case .inicioVacaciones:
+            fechaInicioVacacionesLabel.text = "\(fecha)"
+            NominaController.shared.addFechaInicioVacaciones(fecha: fecha)
+        case .finVacaciones:
+            fechaFinVacacionesLabel.text = "\(fecha)"
+            NominaController.shared.addFechaFinVacaciones(fecha: fecha)
+        default:
+            print("Tiop no válido")
+        }
+        print("FECHA CONTRATACIÓN: \(fecha) tipo fecha \(tipo)")
         
     }
 }

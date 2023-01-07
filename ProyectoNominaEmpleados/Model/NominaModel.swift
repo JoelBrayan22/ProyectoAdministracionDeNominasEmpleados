@@ -112,10 +112,111 @@ class NominaModel {
         return nil
     }
     
+    func addFechaContratacion(fecha: Date) -> EmpleadoEntity? {
+        
+        if let empleado = empleadoSeleccionado {
+            
+            empleado.fechaContratacion = fecha
+            
+            let context = self.persistentContainer.viewContext
+            
+            do {
+                try context.save()
+                self.loadEmpleados()
+                return empleado
+            } catch {
+                context.rollback()
+            }
+            
+        }
+        
+        return nil
+        
+    }
+    
+    func addFechaInicioVacaciones(fecha: Date) -> EmpleadoEntity? {
+        
+        if let empleado = empleadoSeleccionado {
+            
+            empleado.fechaVacacionesInicio = fecha
+            
+            let context = self.persistentContainer.viewContext
+            
+            do {
+                try context.save()
+                self.loadEmpleados()
+                return empleado
+            } catch {
+                context.rollback()
+            }
+            
+        }
+        
+        return nil
+        
+    }
+    
+    func addFechaFinVacaciones(fecha: Date) -> EmpleadoEntity? {
+        
+        if let empleado = empleadoSeleccionado {
+            
+            empleado.fechaVacacionesFin = fecha
+            
+            let context = self.persistentContainer.viewContext
+            
+            do {
+                try context.save()
+                self.loadEmpleados()
+                return empleado
+            } catch {
+                context.rollback()
+            }
+            
+        }
+        
+        return nil
+        
+    }
+    
+    
+    func addFechaPago(fecha: Date) -> PagoEntity? {
+        
+        if let pago = pagoSeleccionado {
+            
+            pago.fechaPago = fecha
+            
+            let context = self.persistentContainer.viewContext
+            
+            do {
+                try context.save()
+                self.loadEmpleados()
+                return pago
+            } catch {
+                context.rollback()
+            }
+            
+        }
+        
+        return nil
+        
+    }
+    
     func getEmpleados() -> [EmpleadoEntity] {
         
         self.loadEmpleados()
         return self.empleados
+    }
+    
+    func guardarEmpleadoSeleccionado() {
+        
+        let context = persistentContainer.viewContext
+        
+        do {
+            try context.save()
+        } catch {
+            context.rollback()
+        }
+        
     }
     
     func addEmpleado(id: Int, nombre: String, area: String, departamento: String, puesto: String, fechaContratacion: Date, salario: Double) -> EmpleadoEntity? {

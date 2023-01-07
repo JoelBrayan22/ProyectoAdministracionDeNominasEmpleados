@@ -100,6 +100,58 @@ class NominaController {
         
     }
     
+    func guardarFechasEmpleadoSeleccionado() {
+        self.model.guardarEmpleadoSeleccionado()
+    }
+    
+    func updateEmpleado(fecha: Date) {
+        
+        if let empleadoSelected = self.model.empleadoSeleccionado {
+            
+            if let empleado = self.model.addFechaContratacion(fecha: fecha) {
+                
+                catalogoEmpleadosDelegate?.empleado(empleadosCargados: self.model.empleados)
+                detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleado)
+            }
+        }
+    }
+    
+    func addFechaInicioVacaciones(fecha: Date) {
+        
+        if let empleadoSelected = self.model.empleadoSeleccionado {
+            
+            if let empleado = self.model.addFechaInicioVacaciones(fecha: fecha) {
+                
+                catalogoEmpleadosDelegate?.empleado(empleadosCargados: self.model.empleados)
+                detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleado)
+            }
+        }
+    }
+    
+    func addFechaFinVacaciones(fecha: Date) {
+        
+        if let empleadoSelected = self.model.empleadoSeleccionado {
+            
+            if let empleado = self.model.addFechaFinVacaciones(fecha: fecha) {
+                
+                catalogoEmpleadosDelegate?.empleado(empleadosCargados: self.model.empleados)
+                detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleado)
+            }
+        }
+    }
+    
+    func addFechaPago(fecha: Date) {
+        
+        if let empleadoSelected = self.model.empleadoSeleccionado {
+            
+            if let _ = self.model.addFechaFinVacaciones(fecha: fecha) {
+                
+                catalogoEmpleadosDelegate?.empleado(empleadosCargados: self.model.empleados)
+                detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleadoSelected)
+            }
+        }
+    }
+    
     // Empleado seleccionado en CatalogoEmpleadosVC
     func seleccionarEmpleado(index: Int, empleado: EmpleadoEntity) {
         
@@ -113,6 +165,19 @@ class NominaController {
     func getEmpleadoSeleccionado() {
         if let empleadoSeleccionado = self.model.empleadoSeleccionado {
             detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleadoSeleccionado)
+        }
+    }
+    
+    func getEmpleadoSeleccionadoFechasVacaciones() {
+        print("OBTENIENDO FECHAS VACACIONES")
+        if let empleadoSeleccionado = self.model.empleadoSeleccionado {
+            print(empleadoSeleccionado)
+            if let fechaVacacionesInicio = empleadoSeleccionado.fechaVacacionesInicio {
+                seleccionarVacacionesDelegate?.empleado(fechaSeleccionada: fechaVacacionesInicio, tipoFecha: .inicioVacaciones)
+            }
+            if let fechaVacacionesFin = empleadoSeleccionado.fechaVacacionesFin {
+                seleccionarVacacionesDelegate?.empleado(fechaSeleccionada: fechaVacacionesFin, tipoFecha: .finVacaciones)
+            }
         }
     }
     
@@ -137,7 +202,7 @@ class NominaController {
             self.seleccionarVacacionesDelegate?.empleado(fechaSeleccionada: fechaSeleccionada, tipoFecha: .inicioVacaciones)
         case .finVacaciones:
             self.model.fechaFinVacaciones = fechaSeleccionada
-            self.seleccionarVacacionesDelegate?.empleado(fechaSeleccionada: fechaSeleccionada, tipoFecha: .inicioVacaciones)
+            self.seleccionarVacacionesDelegate?.empleado(fechaSeleccionada: fechaSeleccionada, tipoFecha: .finVacaciones)
         case .fechaPago:
             self.model.fechaPago = fechaSeleccionada
             self.addPagoDelegate?.salario(fechaPago: fechaSeleccionada, tipoFech: .fechaPago)

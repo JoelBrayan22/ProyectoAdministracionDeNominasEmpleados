@@ -14,6 +14,25 @@ class CalendarioViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // El calendarioDelegate sera esta vista
+        NominaController.shared.calendarioDelegate = self
+        
+        calendarioDatePicker.locale = .current
+        calendarioDatePicker.date = Date()
+        calendarioDatePicker.addTarget(self, action: #selector(selectDate), for: .valueChanged)
+    }
+    
+    @objc
+    func selectDate() {
+        //let dateFormatter = DateFormatter()
+        //dateFormatter.dateStyle = .medium
+        //dateFormatter.timeStyle = .none
+        //let date = dateFormatter.string(from: calendarioDatePicker.date)
+        print("-----------------------------")
+        print(calendarioDatePicker.date)
+        NominaController.shared.seleccionarFecha(fechaSeleccionada: calendarioDatePicker.date)
+        
     }
     
 
@@ -50,4 +69,17 @@ class CalendarioViewController: UIViewController {
     }
     
 
+}
+
+extension CalendarioViewController:
+    
+    CalendarioDelegate {
+    
+    func empleado(fechaSeleccionada fecha: Date) {
+    }
+    
+    func empleado(fechaSeleccionadaError message: String) {
+    }
+    
+    
 }
