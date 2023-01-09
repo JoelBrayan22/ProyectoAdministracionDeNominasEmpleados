@@ -32,40 +32,41 @@ class AddPagoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ///Instanciamos el delegado del controllador para agregar pagos.
         NominaController.shared.addPagoDelegate = self
     }
     
     
     @IBAction func generarPagoActionButton(_ sender: Any) {
-        
+        ///Alertas
         let alert = UIAlertController(title: "Atención", message: "¿ Los datos del pago son correctos ?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Si", comment: "Default action"), style: .default, handler: { _ in
-            
+            ///Comprobaciónn de los datos y asignación.
             guard let sueldo = self.sueldoPagoTextField.text else {
-                return
+                return self.salario(salarioCreadoError: "error")
             }
             
             guard let viaticos = self.viaticosPagoTextField.text else {
-                return
+                return self.salario(salarioCreadoError: "error")
             }
             
             guard let prestamo = self.prestamoPagoTextField.text else {
-                return
+                return self.salario(salarioCreadoError: "error")
             }
             
             guard let abono = self.abonoPrestamoTextField.text else {
-                return
+                return self.salario(salarioCreadoError: "Error")
             }
             
             guard let numeroAbono = self.numeroAbonoTextField.text else {
-                return
+                return self.salario(salarioCreadoError: "error")
             }
             
             guard let descripcionPrestamo = self.descripcionPrestamoTextField.text else {
-                return
+                return self.salario(salarioCreadoError: "error")
             }
+            ///Creación del pago con los datos asignados.
             NominaController.shared.agregarPago(fechaPago: Date.now, sueldo: Double(sueldo) ?? 0.0, viaticos: Double(viaticos) ?? 0.0, prestamo: Double(prestamo) ?? 0.0, descripcionPrestamo: descripcionPrestamo, cantidadRestantePrestamo: Double(abono), numeroAbono: Int(numeroAbono) ?? 0)
             
 
@@ -80,7 +81,7 @@ class AddPagoViewController: UIViewController {
     }
     
     @IBAction func cancelarPagoActionButton(_ sender: Any) {
-        
+        ///Alerta para cancelar la acción y salir de la pantalla.
         let alert = UIAlertController(title: "Atención", message: "¿ Desea cancelar el pago ?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Si", comment: "Default action"), style: .default, handler: { _ in
@@ -100,7 +101,7 @@ class AddPagoViewController: UIViewController {
 }
 
 extension AddPagoViewController: AddPagoDelegate {
-    
+    ///Extensión para implementar los metodos de AddPagoDelegate.
     func salario(salarioCreado salario: PagoEntity) {
         print("Salario creado Correctamente \(salario) ")
         self.navigationController?.popViewController(animated: true)
