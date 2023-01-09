@@ -1,8 +1,12 @@
 //
-//  CustomTableViewCell.swift
-//  ProyectoNominaEmpleados
+// Proyecto: NominApp
 //
-//  Created by MacBook on 04/01/23.
+// Autores:
+// Joel Brayan Navor Jimenez
+// Brian Jimenez Moedano
+// Heber Eduardo Jimenez Rodriguez
+//
+// Creado el 4 de enero del 2023
 //
 
 import UIKit
