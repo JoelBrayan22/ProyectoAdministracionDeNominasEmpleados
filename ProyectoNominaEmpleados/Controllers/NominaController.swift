@@ -1,8 +1,12 @@
 //
-//  NominaController.swift
-//  ProyectoNominaEmpleados
+// Proyecto: NominApp
 //
-//  Created by MacBook on 05/01/23.
+// Autores:
+// Joel Brayan Navor Jimenez
+// Brian Jimenez Moedano
+// Heber Eduardo Jimenez Rodriguez
+//
+// Creado el 5 de enero del 2023
 //
 
 import Foundation
@@ -15,7 +19,6 @@ enum TipoFecha {
         case fechaContratacion
         case fechaPago
     }
-
 
 class NominaController {
     
@@ -66,6 +69,8 @@ class NominaController {
         
         if let empleado = self.model.addEmpleado(id: Int(Int32.random(in: 1...Int32.max)), nombre: nombre, area: area, departamento: departamento, puesto: puesto, fechaContratacion: fechaContratacion, salario: salario) {
             
+            // Se le notifica a AddEmpleadoViewController y CatalogoEmpleadosViewController
+            // que un empleado nuevo a sido generado, y se les pasas ese empleado generado.
             addEmpleadoDelegate?.empleado(empleadoCreado: empleado)
             catalogoEmpleadosDelegate?.empleado(empleadoCreado: empleado)
             
@@ -75,6 +80,7 @@ class NominaController {
     // Selecciona el tipo de fecha de contratacion.
     func seleccionarTipoFechaComoContratacion() {
         
+        // Asigna el tipo de fecha, como fecha de contratacion del empleado
         self.model.tipoFecha = .fechaContratacion
         
     }
@@ -82,6 +88,7 @@ class NominaController {
     // Selecciona el tipo de fecha de inicio de vacaciones
     func seleccionarTipoFechaComoInicioVacaciones() {
         
+        // Asigna el tipo de fecha, como fecha de inicio de periodo vacacional del empleado
         self.model.tipoFecha = .inicioVacaciones
         
     }
@@ -89,6 +96,7 @@ class NominaController {
     // Selecciona el tipo de fecha de fin de vacacciones
     func seleccionarTipoFechaComoFinVacaciones() {
         
+        // Asigna el tipo de fecha, como fecha de fin de periodo vacacional del empleado
         self.model.tipoFecha = .finVacaciones
         
     }
@@ -96,56 +104,76 @@ class NominaController {
     // Selecciona el tipo de fecha de pago.
     func seleccionarTipoFechaComoFechaPago() {
         
+        // Asigna el tipo de fecha, como fecha en que fue generado un pago al empleado
         self.model.tipoFecha = .fechaPago
         
     }
     
+    // Almacena todas las fechas (de contratacion, de inicio de periodo vacacional,
+    // de fin de periodo vacacional, y fecha en que fue generado un pago) seleccionadas
+    // del empleado que hemos seleccionado
     func guardarFechasEmpleadoSeleccionado() {
         self.model.guardarEmpleadoSeleccionado()
     }
     
-    func updateEmpleado(fecha: Date) {
+    // Registra la fecha en que fue contratado el empleado
+    func addFechaContratacionEmpleado(fecha: Date) {
         
-        if let empleadoSelected = self.model.empleadoSeleccionado {
+        if self.model.empleadoSeleccionado != nil {
             
             if let empleado = self.model.addFechaContratacion(fecha: fecha) {
                 
+                // Notifica por medio de delegados, a CatalogoEmpleadosViewController y a
+                // DetallesEmpleadoViewController que se agrego la fecha de contratacion al
+                // empleado, para que puedan mostrar dicho dato, en sus vistas.
                 catalogoEmpleadosDelegate?.empleado(empleadosCargados: self.model.empleados)
                 detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleado)
             }
         }
     }
     
+    // Registra la fecha de inicio del periodo vacacional del empleado
     func addFechaInicioVacaciones(fecha: Date) {
         
-        if let empleadoSelected = self.model.empleadoSeleccionado {
+        if self.model.empleadoSeleccionado != nil {
             
             if let empleado = self.model.addFechaInicioVacaciones(fecha: fecha) {
                 
+                // Notifica por medio de delegados, a CatalogoEmpleadosViewController y a
+                // DetallesEmpleadoViewController cual es la fecha en que inicia el
+                // periodo vacacional del empleado.
                 catalogoEmpleadosDelegate?.empleado(empleadosCargados: self.model.empleados)
                 detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleado)
             }
         }
     }
     
+    // Registra la fecha de termino del periodo vacacional del empleado
     func addFechaFinVacaciones(fecha: Date) {
         
-        if let empleadoSelected = self.model.empleadoSeleccionado {
+        if self.model.empleadoSeleccionado != nil {
             
             if let empleado = self.model.addFechaFinVacaciones(fecha: fecha) {
                 
+                // Notifica por medio de delegados, a CatalogoEmpleadosViewController y a
+                // DetallesEmpleadoViewController cual es la fecha en que termina el
+                // periodo vacacional del empleado.
                 catalogoEmpleadosDelegate?.empleado(empleadosCargados: self.model.empleados)
                 detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleado)
             }
         }
     }
     
+    // Registra la fecha en que se realia un pago al empleado
     func addFechaPago(fecha: Date) {
         
         if let empleadoSelected = self.model.empleadoSeleccionado {
             
             if let _ = self.model.addFechaFinVacaciones(fecha: fecha) {
                 
+                // Notifica por medio de delegados, a CatalogoEmpleadosViewController y a
+                // DetallesEmpleadoViewController que se agrego la fecha al pago generado
+                // al empleado
                 catalogoEmpleadosDelegate?.empleado(empleadosCargados: self.model.empleados)
                 detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleadoSelected)
             }
@@ -157,25 +185,41 @@ class NominaController {
         
         if let empleado = model.seleccionarEmpleado(index: index, empleado: empleado) {
             
+            // Notifica a CatalogoEmpleadosViewController y a DetallesEmpleadoViewController
+            // que se ha seleccionado un empleado del catalogo de empleados.
             catalogoEmpleadosDelegate?.empleado(empleadoSeleccionado: empleado, index: index)
         }
     }
     
     // Empleado seleccionado que necesita DetallesEmpleadoVC para mostrarlo
     func getEmpleadoSeleccionado() {
+        
         if let empleadoSeleccionado = self.model.empleadoSeleccionado {
+            
+            // Notifica a DetallesEmpleadoViewController cual fue ese empleado seleccionado
             detallesEmpleadoDelegate?.empleado(empleadoSeleccionado: empleadoSeleccionado)
         }
     }
     
+    // Asigna las fechas de inicio y fin de periodo vacacional del empleado seleccioando
     func getEmpleadoSeleccionadoFechasVacaciones() {
-        print("OBTENIENDO FECHAS VACACIONES")
+        
+        //print("OBTENIENDO FECHAS VACACIONES")
         if let empleadoSeleccionado = self.model.empleadoSeleccionado {
-            print(empleadoSeleccionado)
+            
+            print("EL EMPLEADO SELECCIONADO ES: \(empleadoSeleccionado)")
+            
+            
             if let fechaVacacionesInicio = empleadoSeleccionado.fechaVacacionesInicio {
+                
+                // Asigna la fecha de inicio de periodo vacacional al empleado seleccionado
                 seleccionarVacacionesDelegate?.empleado(fechaSeleccionada: fechaVacacionesInicio, tipoFecha: .inicioVacaciones)
             }
+            
+            
             if let fechaVacacionesFin = empleadoSeleccionado.fechaVacacionesFin {
+                
+                // Asigna la fecha de fin de periodo vacacional al empleado seleccionado
                 seleccionarVacacionesDelegate?.empleado(fechaSeleccionada: fechaVacacionesFin, tipoFecha: .finVacaciones)
             }
         }
@@ -183,7 +227,11 @@ class NominaController {
     
     // Obtener todo el historial de pagos del empleado
     func obtenerHistorialPagos() {
-        print("Empleado seleccionado: \(self.model.empleadoSeleccionado?.id ?? -1)")
+        
+        //print("Empleado seleccionado: \(self.model.empleadoSeleccionado?.id ?? -1)")
+        
+        // Brinda todo el historial de los pagos de un empleado, y se filtra, para poder
+        // obtener, solo el historial del empleado que a sido seleccioando
         historialNominaDelegate?.pago(historialPagos: self.model.pagos.filter({
             pago in
             pago.empleado == self.model.empleadoSeleccionado
@@ -193,7 +241,9 @@ class NominaController {
     
     // Evalua el tipo de fecha deseada, despues de determinar el tipo de fecha, le aignamos la fecha(date) seleccionada.
     func seleccionarFecha(fechaSeleccionada: Date) {
+        
         switch self.model.tipoFecha {
+        
         case .fechaContratacion:
             self.model.fechaContratacion = fechaSeleccionada
             self.addEmpleadoDelegate?.empleado(fechaContratado: fechaSeleccionada)
@@ -210,13 +260,13 @@ class NominaController {
             print("Tipo de fecha no válido")
         }
     }
-
     
     // Selecciona un pago desde HistorialNominaVC
     func seleccionarPago(index: Int, pago: PagoEntity) {
         
         if let pago = model.seleccionarPago(index: index, pago: pago) {
             
+            // Notifica a HistorialNominaViewController que un pago ha sido seleccioando
             historialNominaDelegate?.pago(pagoSeleccionado: pago, index: index)
         }
         
@@ -224,7 +274,10 @@ class NominaController {
     
     // Pago seleccionado que necesita DetallePagoVC
     func getPagoSeleccionado() {
+        
         if let pagoSeleccionado = self.model.pagoSeleccionado {
+            
+            // Notifica a DetallePagoViewController cual fue el empleado seleccioando
             detallePagoDelegate?.salario(pagoSeleccionado: pagoSeleccionado)
         }
     }

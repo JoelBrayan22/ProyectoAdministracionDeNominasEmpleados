@@ -1,9 +1,13 @@
 //
-//  NominaModel.swift
-//  ProyectoNominaEmpleados
+// Proyecto: NominApp
 //
-//  Created by User on 05/01/23.
+// Autores:
+// Joel Brayan Navor Jimenez
+// Brian Jimenez Moedano
+// Heber Eduardo Jimenez Rodriguez
 //
+// Creado del 3 de enero del 2023 al 6 de enero del 2023
+// 
 
 import Foundation
 import CoreData
@@ -54,27 +58,29 @@ class NominaModel {
     // Variable global que retiene el tipo de fecha seleccionada
     var tipoFecha: TipoFecha?
     
-    
     let logIn: [(correo: String, password: String)] =
                 [("heber@gs.com","1234"),
                  ("joel@gs.com","1234"),
                  ("brian@gs.com", "1234")]
     
-    
+    // Creando empleados por defecto, de prueba
     func instalarEmpleados() {
-        print("Instalando empleados")
+        //print("Instalando empleados")
         
         guard let _ = self.addEmpleado(id: 1, nombre: "Admin Ejemplo", area: "Pruebas", departamento: "Desarrollo", puesto: "Testing", fechaContratacion: Date.now, salario: 15000) else {
             return
         }
+        
         guard let _ = self.addEmpleado(id: 2, nombre: "Ana Paola", area: "Contabilidad", departamento: "Recursos Financieros", puesto: "Secretaria", fechaContratacion: Date.now, salario: 10000) else {
             return
         }
+        
         guard let _ = self.addEmpleado(id: 3, nombre: "Pedro Soto", area: "Administración", departamento: "Titulación", puesto: "Gerente", fechaContratacion: Date.now, salario: 17500) else {
             return
         }
     }
     
+    // Carga todos los empleados y pagos existentes, desde nuestro "NominApp"
     func loadEmpleados() {
         
         let context = self.persistentContainer.viewContext
@@ -89,6 +95,7 @@ class NominaModel {
         }
         
         if self.empleados.isEmpty {
+            
             self.instalarEmpleados()
         }
         
@@ -98,20 +105,24 @@ class NominaModel {
         }
     }
     
+    // Loguea un empleado
     func empleadoLogIn(correo: String, password: String) -> EmpleadoEntity? {
         
         self.loadEmpleados()
         
         if let empleado = self.empleados.filter({ empleado in
+            
             empleado.correo == correo && empleado.password == password
+            
         }).first {
+            
             self.empleadoLogueado = empleado
             return empleado
         }
-        
         return nil
     }
     
+    // Agrega fecha de contratacion a un empleado
     func addFechaContratacion(fecha: Date) -> EmpleadoEntity? {
         
         if let empleado = empleadoSeleccionado {
@@ -129,11 +140,11 @@ class NominaModel {
             }
             
         }
-        
         return nil
         
     }
     
+    // Agrega fecha de inicio de vacaciones a un empleado
     func addFechaInicioVacaciones(fecha: Date) -> EmpleadoEntity? {
         
         if let empleado = empleadoSeleccionado {
@@ -151,11 +162,11 @@ class NominaModel {
             }
             
         }
-        
         return nil
         
     }
     
+    // Agrega fecha de fin de vacaciones a un empleado
     func addFechaFinVacaciones(fecha: Date) -> EmpleadoEntity? {
         
         if let empleado = empleadoSeleccionado {
@@ -173,12 +184,11 @@ class NominaModel {
             }
             
         }
-        
         return nil
         
     }
     
-    
+    // Agrega fecha de pago generado a un empleado
     func addFechaPago(fecha: Date) -> PagoEntity? {
         
         if let pago = pagoSeleccionado {
@@ -196,11 +206,11 @@ class NominaModel {
             }
             
         }
-        
         return nil
         
     }
     
+    // Devuelve los empleados y pagos
     func getEmpleados() -> [EmpleadoEntity] {
         
         self.loadEmpleados()
@@ -219,6 +229,7 @@ class NominaModel {
         
     }
     
+    // Genera un empleado nuevo
     func addEmpleado(id: Int, nombre: String, area: String, departamento: String, puesto: String, fechaContratacion: Date, salario: Double) -> EmpleadoEntity? {
         
         print("Recibiendo empleado: \(id) \(nombre)")
@@ -256,6 +267,7 @@ class NominaModel {
         }
     }
     
+    // selecciona el empleado deseado
     func seleccionarEmpleado(index: Int, empleado: EmpleadoEntity) -> EmpleadoEntity? {
         
         guard index >= 0 && index < self.empleados.count
@@ -276,13 +288,15 @@ class NominaModel {
         default: return Date().self
         }
     }*/
-
+    
+    // Brinda todo el historial de pagos generados a un empleado
     func obtenerHistorialPagos() -> [PagoEntity] {
         
         self.loadEmpleados()
         return self.pagos
     }
     
+    // Selecciona un pago el historial de pagos de un empleado
     func seleccionarPago(index: Int, pago: PagoEntity) -> PagoEntity? {
         
         guard index >= 0 && index < self.pagos.count
@@ -298,6 +312,7 @@ class NominaModel {
         return self.pagoSeleccionado
     }
     
+    // Genera un nuevo pago a un empleado
     func agregarPago(nombreEmpleado: String, fechaPago: Date, sueldo: Double, viaticos: Double?, prestamo: Double?, descripcionPrestamo: String?, cantidadRestantePrestamo: Double?, numeroAbono: Int?) -> PagoEntity? {
         
         let context = persistentContainer.viewContext
@@ -312,7 +327,9 @@ class NominaModel {
         pago.descripcionPrestamo = descripcionPrestamo ?? ""
         pago.cantidadRestantePrestamo = cantidadRestantePrestamo ?? 0.0
         pago.numeroAbono = Int32(numeroAbono ?? 0)
+        
         if let empleadoSeleccionado = self.empleadoSeleccionado {
+            
             pago.empleado = empleadoSeleccionado
         }
         

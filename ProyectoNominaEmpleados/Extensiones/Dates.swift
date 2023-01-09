@@ -1,10 +1,13 @@
 //
-//  Date.swift
-//  ProyectoNominaEmpleados
+// Proyecto: NominApp
 //
-//  Created by MacBook on 06/01/23.
+// Autores:
+// Joel Brayan Navor Jimenez
+// Brian Jimenez Moedano
+// Heber Eduardo Jimenez Rodriguez
 //
-
+// Creado el 6 de enero del 2023
+//
 import Foundation
 
 extension Date {
