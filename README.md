@@ -8,6 +8,7 @@
 ### Joel Brayan Navor Jimenez
 ### Brian Jimenez Moedano
 
+![Screen 1](./Capturas\ de\ pantalla/PulsarBotonParaHistorialDeNomina.png)
 
 # NominApp
 
