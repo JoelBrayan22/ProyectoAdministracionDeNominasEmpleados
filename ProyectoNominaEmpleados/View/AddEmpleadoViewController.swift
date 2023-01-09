@@ -1,8 +1,12 @@
 //
-//  AddEmpleadoViewController.swift
-//  ProyectoNominaEmpleados
+// Proyecto: NominApp
 //
-//  Created by MacBook on 03/01/23.
+// Autores:
+// Joel Brayan Navor Jimenez
+// Brian Jimenez Moedano
+// Heber Eduardo Jimenez Rodriguez
+//
+// Creado el 3 de enero del 2023
 //
 
 import UIKit
@@ -99,10 +103,15 @@ class AddEmpleadoViewController: UIViewController {
     }
     
 }
+<<<<<<< HEAD
 ///Extension para la implementación de los metodos de AddEmpleadoDelegate.
+=======
+
+>>>>>>> 7840d4b84fb66e939871412a5151249f3d8f3ab6
 extension AddEmpleadoViewController: AddEmpleadoDelegate {
     
     func empleado(fechaContratado fecha: Date) {
+        print("FECHA CONTRATACIÓN: \(fecha)")
         self.fechaContratacion = fecha
     }
     

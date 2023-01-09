@@ -8,6 +8,7 @@
 ### Joel Brayan Navor Jimenez
 ### Brian Jimenez Moedano
 
+![Screen 1](./Capturas\ de\ pantalla/PulsarBotonParaHistorialDeNomina.png)
 
 # NominApp
 
@@ -52,19 +53,37 @@ class NominaModel {
     
     let container: NSPersistentContainer
     
-    // Variable global que almacenara al empleado seleccionado
+    // Almacena al empleado logueado
+    var empleadoLogueado: EmpleadoEntity?
+    
+    // Almacenara al empleado seleccionado del catalogo de empleados
     var empleadoSeleccionado: EmpleadoEntity?
     
-    // Variable global que almacenara todos los empleadosz 
-    var empleados: [EmpleadoEntity]
+    // Almacenara todos los empleados existentes
+    var empleados: [EmpleadoEntity] = []
     
-    // Variable global que almacenara el pago seleccionado
+    // Almacenara el pago seleccionado en el historial de pagos
     var pagoSeleccionado: PagoEntity?
     
-    // Variable global que almacenara todos los pagos
-    var pagos: [PagoEntity]
+    // Almacenara todos los pagos de un empleado dado
+    var pagos: [PagoEntity] = []
     
-    /// Carga los `empleados` desde el CoreData
+    // Almacena la fecha de contratacion del empleado
+    var fechaContratacion: Date?
+    
+    // Almacena la fecha de inicio de vacaciones del empleado
+    var fechaInicioVacaciones: Date?
+    
+    // ALmacenara la fecha de fin de vacaciones del empleado
+    var fechaFinVacaciones: Date?
+    
+    // ALmacenara la fecha en que se genera un pago al empleado
+    var fechaPago: Date?
+    
+    // Variable global que retiene el tipo de fecha seleccionada
+    var tipoFecha: TipoFecha?
+    
+    /// Carga todos los empleados existentes, desde nuestro "NominApp"
     func loadEmpleados() {
         // 1. Recupera el contexto
         // 2. Crea un request de `EmpleadoEntity`
@@ -76,27 +95,42 @@ class NominaModel {
     // Funcion que loguea un usuario
     func empleadoLogin(correo: String, password: String) -> EmpleadoEntity
 
-    /// Devuelve los `empleados`
+    /// Devuelve los empleados y pagos
     func getEmpleados() -> [EmpleadoEntity]
 
-    /// Agrega un nuevo `EmpleadoEntity` con valores
+    /// Agrega un nuevo EmpleadoEntity con valores
     /// por defecto y guarda el contexto
     /// del contenedor
-    func addEmpleado(id: Int, nombre: String, area: String, departamento: String, puesto: String, fechaContratacion: Date, antiguedad: Int, salario: Double, fechaVacacionesInicio: Date, fechaVacacionesFin: Date, estaVacaciones: Bool, tienePrestamo: Bool) -> EmpleadoEntity? 
+    func addEmpleado(id: Int, nombre: String, area: String, departamento: String, puesto: String, fechaContratacion: Date, salario: Double) -> EmpleadoEntity? 
     
-    /// Busca el `empleado` en los `empleados` con ese
+    /// Busca el empleado en los empleados con ese
     /// índice y guárdalo en empleadoSeleccionado
-    func seleccionarEmpleado(index: Int) -> EmpleadoEntity?
+    func seleccionarEmpleado(index: Int, empleado: EmpleadoEntity) -> EmpleadoEntity?
 
-    // Selecciona una fecha
-    func seleccionarFecha(fechaSeleccionada: Date, tipoFecha: TipoFecha) -> Date
+    // Agrega fecha de contratacion a un empleado
+    func addFechaContratacion(fecha: Date) -> EmpleadoEntity?
+    
+    // Agrega fecha de inicio de vacaciones a un empleado
+    func addFechaInicioVacaciones(fecha: Date) -> EmpleadoEntity?
+    
+    // Agrega fecha de fin de vacaciones a un empleado
+    func addFechaFinVacaciones(fecha: Date) -> EmpleadoEntity?
+    
+    // Agrega fecha de pago generado a un empleado
+    func addFechaPago(fecha: Date) -> PagoEntity?
+    
+    // selecciona el empleado deseado 
+    func seleccionarEmpleado(index: Int, empleado: EmpleadoEntity) -> EmpleadoEntity?
 
+    // Brinda todo el historial de pagos generados a un empleado
     func obtenerHistorialPagos() -> [PagoEntity]
 
-    func seleccionarPago(index: Int) -> PagoEntity
+    // Selecciona un pago el historial de pagos de un empleado
+    func seleccionarPago(index: Int, pago: PagoEntity) -> PagoEntity?
 
-    func agregarPago(nombreEmpleado: String, fechaPago: Date, sueldo: Double, viaticos: Double?, prestamo: Double?, descripcionPrestamo: String?, cantidadRestantePrestamo: Double?, numeroAbono: Int?) -> PagoEntity
-} 
+    // Genera un nuevo pago a un empleado
+    func agregarPago(nombreEmpleado: String, fechaPago: Date, sueldo: Double, viaticos: Double?, prestamo: Double?, descripcionPrestamo: String?, cantidadRestantePrestamo: Double?, numeroAbono: Int?) -> PagoEntity?
+}
 ```
 >Enum TipoFecha
 ```swift
@@ -121,31 +155,80 @@ class NominaController {
     let model = NominaModel()
     
     // Delegados para hacer notificaciones a las vistas
-    var viewControllerDelegate = ViewControllerDelegate?
-    var catalogoEmpleadosDelegate = CatalogoEmpleadosDelegate?
-    var addEmpleadoDelegate = AddEmpleadoDelegate?
-    var calendarioDelegate = CalendarioDelegate?
-    var detallesEmpleadoDelegate = DetallesEmpleadoDelegate?
-    var seleccionarVacacionesDelegate = SeleccionarVacacionesDelegate?
-    var historialNominaDelegate = HistorialNominaDelegate?
-    var detallePagoDelegate = DetallePagoDelegate?
-    var addPagoDelegate = AddPagoDelegate?
+    var viewControllerDelegate: ViewControllerDelegate?
+    var catalogoEmpleadosDelegate: CatalogoEmpleadosDelegate?
+    var addEmpleadoDelegate: AddEmpleadoDelegate?
+    var calendarioDelegate: CalendarioDelegate?
+    var detallesEmpleadoDelegate: DetallesEmpleadoDelegate?
+    var seleccionarVacacionesDelegate: SeleccionarVacacionesDelegate?
+    var historialNominaDelegate: HistorialNominaDelegate?
+    var detallePagoDelegate: DetallePagoDelegate?
+    var addPagoDelegate: AddPagoDelegate?
     
     // Funciones 
-    func empleadoLogin(correo: String, password: String) 
     
-    func addEmpleado(id: Int, nombre: String, area: String, departamento: String, puesto: String, fechaContratacion: Date, antiguedad: Int, salario: Double, fechaVacacionesInicio: Date, fechaVacacionesFin: Date, estaVacaciones: Bool, tienePrestamo: Bool)
+    // Loguea un empleado
+    func empleadoLogin(correo: String, password: String)
     
-    func seleccionarEmpleado(index: Int)
+    // Obtener todos los empleados existentes
+    func getEmpleados ()
     
-    // Selecciona una fecha
-    func seleccionarFecha(fechaSeleccionada: Date, tipoFecha: TipoFecha) 
-
+    // Crear un empleado nuevo en AddEmpleadoVC
+    func addEmpleado(id: Int, nombre: String, area: String, departamento: String, puesto: String, fechaContratacion: Date, salario: Double)
+    
+    // Selecciona el tipo de fecha de contratacion.
+    func seleccionarTipoFechaComoContratacion()
+    
+    // Selecciona el tipo de fecha de inicio de vacaciones
+    func seleccionarTipoFechaComoInicioVacaciones()
+    
+    // Selecciona el tipo de fecha de fin de vacacciones
+    func seleccionarTipoFechaComoFinVacaciones()
+    
+    // Selecciona el tipo de fecha de pago.
+    func seleccionarTipoFechaComoFechaPago()
+    
+    // Almacena todas las fechas (de contratacion, de inicio de periodo vacacional,
+    // de fin de periodo vacacional, y fecha en que fue generado un pago) 
+    // seleccionadas del empleado que hemos seleccionado
+    func guardarFechasEmpleadoSeleccionado()
+    
+    // Registra la fecha en que fue contratado el empleado
+    func addFechaContratacionEmpleado(fecha: Date)
+    
+    // Registra la fecha de inicio del periodo vacacional del empleado
+    func addFechaInicioVacaciones(fecha: Date)
+    
+    // Registra la fecha de termino del periodo vacacional del empleado
+    func addFechaFinVacaciones(fecha: Date)
+    
+    // Registra la fecha en que se realia un pago al empleado
+    func addFechaPago(fecha: Date) 
+    
+    // Empleado seleccionado en CatalogoEmpleadosVC
+    func seleccionarEmpleado(index: Int, empleado: EmpleadoEntity) 
+    
+    // Empleado seleccionado que necesita DetallesEmpleadoVC para mostrarlo
+    func getEmpleadoSeleccionado() 
+    
+    // Asigna las fechas de inicio y fin de periodo vacacional del empleado seleccioando
+    func getEmpleadoSeleccionadoFechasVacaciones() 
+    }
+    
+    // Obtener todo el historial de pagos del empleado
     func obtenerHistorialPagos()
+    
+    // Evalua el tipo de fecha deseada, despues de determinar el tipo de fecha, le aignamos la fecha(date) seleccionada.
+    func seleccionarFecha(fechaSeleccionada: Date)
+    
+    // Selecciona un pago desde HistorialNominaVC
+    func seleccionarPago(index: Int, pago: PagoEntity) 
+    
+    // Pago seleccionado que necesita DetallePagoVC
+    func getPagoSeleccionado()
 
-    func seleccionarPago(index: Int)
-
-    func agregarPago(nombreEmpleado: String, fechaPago: Date, sueldo: Double, viaticos: Double?, prestamo: Double?, descripcionPrestamo: String?, cantidadRestantePrestamo: Double?, numeroAbono: Int?)
+    // Generar un nuevo pago
+    func agregarPago(fechaPago: Date, sueldo: Double, viaticos: Double?, prestamo: Double?, descripcionPrestamo: String?, cantidadRestantePrestamo: Double?, numeroAbono: Int?)
 }
 ```
 
