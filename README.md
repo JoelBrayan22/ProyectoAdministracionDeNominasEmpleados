@@ -8,7 +8,32 @@
 ### Joel Brayan Navor Jimenez
 ### Brian Jimenez Moedano
 
-![Screen 1](./Capturas\ de\ pantalla/PulsarBotonParaHistorialDeNomina.png)
+
+![PantallaDeInicio](https://github.com/JoelBrayan22/ProyectoAdministracionDeNominasEmpleados/blob/main/Capturas%20de%20pantalla/PantallaDeInicio.png)
+
+![CatalogoDeEmpleados](https://github.com/JoelBrayan22/ProyectoAdministracionDeNominasEmpleados/blob/main/Capturas%20de%20pantalla/PantallaDeCatalogoDeEmpleados.png)
+
+![SeleccionadoUnEmpleadoDelCatalogoDeEmpleados](https://github.com/JoelBrayan22/ProyectoAdministracionDeNominasEmpleados/blob/main/Capturas%20de%20pantalla/SeleccionadoUnEmpleadoDelCatalogoDeEmpleados.png)
+
+![SeleccionarVacaciones](https://github.com/JoelBrayan22/ProyectoAdministracionDeNominasEmpleados/blob/main/Capturas%20de%20pantalla/PantallaParaSeleccionarVacaciones.png)
+
+![PulsandoBotonParaSeleccionarVacaciones](https://github.com/JoelBrayan22/ProyectoAdministracionDeNominasEmpleados/blob/main/Capturas%20de%20pantalla/PulsandoBotonParaSeleccionarVacaciones.png)
+
+![SeleccionarUnaFecha](https://github.com/JoelBrayan22/ProyectoAdministracionDeNominasEmpleados/blob/main/Capturas%20de%20pantalla/PantallaParaSeleccionarUnaFecha.png)
+
+![AlertaDespuesDeSeleccionarUnaFecha](https://github.com/JoelBrayan22/ProyectoAdministracionDeNominasEmpleados/blob/main/Capturas%20de%20pantalla/AlertaDespuesDeSeleccionarUnaFecha.png)
+
+![GenerandoUnNUevoPago](https://github.com/JoelBrayan22/ProyectoAdministracionDeNominasEmpleados/blob/main/Capturas%20de%20pantalla/GenerandoUnNUevoPago.png)
+
+![AlertaDespuesDeGenerarUnNuevoPago](https://github.com/JoelBrayan22/ProyectoAdministracionDeNominasEmpleados/blob/main/Capturas%20de%20pantalla/GeneracionDeUnNuevoPago.png
+
+![PulsandoBotonParaGenerarNuevoPago](https://github.com/JoelBrayan22/ProyectoAdministracionDeNominasEmpleados/blob/main/Capturas%20de%20pantalla/PulsandoBotonParaGenerarUNNUevoPago.png)
+
+![HistorialDeNomina](https://github.com/JoelBrayan22/ProyectoAdministracionDeNominasEmpleados/blob/main/Capturas%20de%20pantalla/PulsarBotonParaHistorialDeNomina.png)
+
+![SeleccionandoUnPago](https://github.com/JoelBrayan22/ProyectoAdministracionDeNominasEmpleados/blob/main/Capturas%20de%20pantalla/SeleccionandoUnPago.png)
+
+
 
 # NominApp
 
