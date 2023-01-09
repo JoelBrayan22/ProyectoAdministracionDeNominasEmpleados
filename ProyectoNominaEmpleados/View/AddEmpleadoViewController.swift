@@ -29,19 +29,21 @@ class AddEmpleadoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ///Hacemos curva la imagen, tiene que ser cuadrada para que sea totalmente redonda
         imagenPerfilEmpleado.layer.cornerRadius = imagenPerfilEmpleado.bounds.size.width / 2.0
         
+        ///Instanciamos el delegado del controllador para agregar empleados.
         NominaController.shared.addEmpleadoDelegate = self
         
         
     }
     
     @IBAction func guardarActionButton(_ sender: Any) {
-        
+        ///Alerta
         let alert = UIAlertController(title: "Atención", message: "¿ Desea guardar al empleado ?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Si", comment: "Default action"), style: .default, handler: { _ in
-            
+            /// Asignación de los datos en los textfields
             guard let nombre = self.nombreTextField.text else {
                 return self.empleado(empleadoCreadoError: "Error, el nombre es requerido")
             }
@@ -68,6 +70,7 @@ class AddEmpleadoViewController: UIViewController {
             guard let fechaContratacion = self.fechaContratacion else {
                 return self.empleado(empleadoCreadoError: "Error, la fecha es requerido")
             }
+            ///Guardos al empleado con los datos de los textfields.
             NominaController.shared.addEmpleado(id: Int(Int32.random(in: 1...Int32.max)), nombre: nombre, area: area, departamento: departamento, puesto: puesto, fechaContratacion: fechaContratacion, salario: Double(salario) ?? 0.0)
             NSLog("Empleado Guardado")
         }))
@@ -80,7 +83,7 @@ class AddEmpleadoViewController: UIViewController {
     }
         
     @IBAction func cancelarActionButton(_ sender: Any) {
-        
+        ///Función para cancelar y salir de la pantalla
         let alert = UIAlertController(title: "Atención", message: "¿ Desea salir de la pantalla ?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Si", comment: "Default action"), style: .default, handler: { _ in
@@ -96,6 +99,7 @@ class AddEmpleadoViewController: UIViewController {
     }
     
 }
+///Extension para la implementación de los metodos de AddEmpleadoDelegate.
 extension AddEmpleadoViewController: AddEmpleadoDelegate {
     
     func empleado(fechaContratado fecha: Date) {
