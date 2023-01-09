@@ -13,7 +13,7 @@ import UIKit
 
 class DetallePagoViewController: UIViewController {
 
-    // Conexion de labels a la vista
+    /// Conexion de labels a la vista
     @IBOutlet weak var nombrePagoLabel: UILabel!
     
     @IBOutlet weak var fechaPagoLabel: UILabel!
@@ -46,10 +46,11 @@ class DetallePagoViewController: UIViewController {
     }
     
 }
-
+///Extensión para la implementación de los metodos traidos por DetallePagoDelegate
 extension DetallePagoViewController: DetallePagoDelegate {
     func salario(pagoSeleccionado pago: PagoEntity) {
         
+        ///Asignación de los datos a los labels mostrados en pantalla.
         let formatterCurrency = NumberFormatter()
         formatterCurrency.locale = Locale.current
         formatterCurrency.numberStyle = .currency
